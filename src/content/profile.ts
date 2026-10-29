@@ -3,6 +3,10 @@ export const profile = {
   email: "arfusop@gmail.com",
   linkedIn: "https://www.linkedin.com/in/phil-arfuso",
   github: "https://github.com/parfuso-pvs",
+  consulting: {
+    availability: "Available for contract and consulting work",
+    email: "phil@philstackcoding.com",
+  },
   contact: {
     intro:
       "Have a web or mobile project in mind? Tell me what you’re building and where you need help.",

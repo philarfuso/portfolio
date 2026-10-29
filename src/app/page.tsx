@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeroArtwork } from "@/components/hero-artwork";
 import { SelectedWork } from "@/components/selected-work";
 import { SiteHeader } from "@/components/site-header";
+import { profile } from "@/content/profile";
 import { featuredProjects } from "@/content/projects";
 
 export default function Home() {
@@ -23,6 +24,14 @@ export default function Home() {
             <p className="hero-intro">
               I enjoy building software, solving difficult problems, and
               creating better experiences for the people using it.
+            </p>
+            <p className="hero-availability">
+              <span>
+                {profile.consulting.availability} <span aria-hidden="true">·</span>
+              </span>{" "}
+              <a href={`mailto:${profile.consulting.email}`}>
+                {profile.consulting.email}
+              </a>
             </p>
 
             <div className="hero-actions" aria-label="Portfolio actions">
@@ -73,6 +82,13 @@ export default function Home() {
           <Link className="primary-action" data-reveal="soft" href="/contact">
             Say hello
           </Link>
+          <a
+            className="home-close-email"
+            data-reveal="soft"
+            href={`mailto:${profile.consulting.email}`}
+          >
+            {profile.consulting.email}
+          </a>
         </div>
       </section>
     </main>

@@ -27,6 +27,10 @@ const heroArtwork = await readFile(
 const resume = await readFile(
   new URL("../public/resume.pdf", import.meta.url),
 );
+const profile = await readFile(
+  new URL("../src/content/profile.ts", import.meta.url),
+  "utf8",
+);
 
 test("landing page uses the approved conversational copy", () => {
   assert.match(page, /Hey, I’m Phil\./);
@@ -40,6 +44,17 @@ test("landing page uses the approved conversational copy", () => {
   assert.match(page, /Explore my work/);
   assert.match(page, /Resume/);
   assert.doesNotMatch(page, /solving messy problems|I try to/);
+});
+
+test("landing page shows consulting availability with a mailto link", () => {
+  assert.match(profile, /Available for contract and consulting work/);
+  assert.match(profile, /email: "phil@philstackcoding\.com"/);
+  assert.match(page, /className="hero-availability"/);
+  assert.match(page, /className="home-close-email"/);
+  assert.equal(
+    page.match(/href=\{`mailto:\$\{profile\.consulting\.email\}`\}/g)?.length,
+    2,
+  );
 });
 
 test("landing page keeps selected work centralized and linked", () => {
