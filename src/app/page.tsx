@@ -27,7 +27,7 @@ export default function Home() {
             </p>
             <p className="hero-availability">
               <span>
-                {profile.consulting.availability} <span aria-hidden="true">·</span>
+                <Link href="/consulting">{profile.consulting.availability}</Link> <span aria-hidden="true">·</span>
               </span>{" "}
               <a href={`mailto:${profile.consulting.email}`}>
                 {profile.consulting.email}

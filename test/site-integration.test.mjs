@@ -43,7 +43,7 @@ test("every route provides a keyboard skip target", () => {
 });
 
 test("the primary navigation links to the work index", () => {
-  assert.match(header, /"work" \| "resume" \| "contact"/);
+  assert.match(header, /"work" \| "resume" \| "consulting" \| "contact"/);
   assert.match(header, /id: "work"/);
   assert.match(work, /current="work"/);
   for (const route of [memx, domani, iffers]) {

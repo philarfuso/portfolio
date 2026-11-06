@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 type SiteHeaderProps = {
-  current?: "work" | "resume" | "contact";
+  current?: "work" | "resume" | "consulting" | "contact";
   tone?: "dark" | "paper";
 };
 
 const navigation = [
   { id: "work", label: "Work", href: "/work" },
   { id: "resume", label: "Resume", href: "/resume" },
+  { id: "consulting", label: "Consulting", href: "/consulting" },
   { id: "contact", label: "Contact", href: "/contact" },
 ] as const;
 

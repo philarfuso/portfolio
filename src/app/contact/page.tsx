@@ -39,6 +39,11 @@ export default function ContactPage() {
           <div className="contact-intro" data-reveal="left" data-reveal-group>
             <h1 id="contact-title" data-reveal="soft">Say hello</h1>
             <p data-reveal="soft">{profile.contact.intro}</p>
+            <div className="contact-consulting" data-reveal="soft">
+              <p>Looking for senior engineering help?</p>
+              <Link href="/consulting">Explore consulting services <span aria-hidden="true">→</span></Link>
+              <a href={`mailto:${profile.consulting.email}`}>{profile.consulting.email}</a>
+            </div>
           </div>
 
           <div

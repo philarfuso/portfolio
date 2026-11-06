@@ -243,7 +243,27 @@ summary:focus-visible {
 
 .desktop-nav {
   display: flex;
-  gap: clamp(34px, 4.2vw, 68px);
+  gap: clamp(22px, 3vw, 48px);
+}
+
+.contact-consulting {
+  display: grid;
+  gap: 14px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.contact-consulting p {
+  margin: 0;
+}
+
+.contact-consulting a {
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-underline-offset: 5px;
 }
 
 .desktop-nav a,
