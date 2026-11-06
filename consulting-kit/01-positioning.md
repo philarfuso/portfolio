@@ -8,7 +8,7 @@ Review for current accuracy before posting. Availability and terms are engagemen
 
 ## LinkedIn About
 
-I help founders, product teams, and agencies build, modernize, and maintain software with hands-on engineering and clear technical direction.
+I offer project-based development and ongoing, part-time engineering support for founders and agencies.
 
 My work spans the interface and the systems behind it: React, Next.js, TypeScript, APIs, PostgreSQL, and production delivery. I can join an existing team to ship a defined piece of work, provide ongoing engineering continuity, or start with a bounded assessment when the next technical step is unclear.
 
@@ -26,7 +26,7 @@ Senior full-stack engineer working across React, Next.js, TypeScript, Node.js, A
 
 Consulting: [[APPROVED_CANONICAL_CONSULTING_URL]]
 
-I offer implementation capacity, ongoing technical ownership, and bounded technical assessments through {{business}} for independent engagements. W-2 contract arrangements are considered separately; they are not invoiced through the LLC.
+I offer full-stack development and agency support, ongoing technical ownership, and bounded technical assessments through {{business}} for independent engagements. W-2 contract arrangements are considered separately; they are not invoiced through the LLC.
 
 ## Before publishing
 

@@ -1,14 +1,14 @@
 import { profile } from "./profile.ts";
 
 export const consulting = {
-  positioning: "Fractional Technical Lead & Senior Full-Stack Engineer",
+  positioning: "Senior Full-Stack Engineer & Software Consultant",
   business: "Phil-Stack Coding LLC",
   introduction: "Senior engineering help for the product you’re building next.",
-  description: "I help founders, product teams, and agencies build, modernize, and maintain software with hands-on engineering and clear technical direction.",
+  description: "Project-based development and ongoing, part-time engineering support for founders and agencies.",
   offers: [
     {
       id: "implementation",
-      name: "Implementation & agency capacity",
+      name: "Full-stack development & agency support",
       shortName: "Build & ship",
       problem: "You have a roadmap and need experienced hands to move it forward.",
       description: "Focused development for an existing product, a new feature, or an agency delivery gap. I work across React, Next.js, TypeScript, APIs, and PostgreSQL.",
@@ -23,7 +23,7 @@ export const consulting = {
       problem: "Your product needs consistent senior attention beyond the next ticket.",
       description: "Hands-on engineering with the continuity to understand your system, make practical technical decisions, and carry improvements through delivery.",
       outputs: ["A prioritized engineering plan", "Features, maintenance, and modernization", "Documented decisions and regular progress updates"],
-      collaboration: "An ongoing engagement with agreed priorities, reserved capacity, and a regular communication rhythm.",
+      collaboration: "Fractional engineering with agreed part-time capacity, priorities, and a regular communication rhythm. Technical leadership can be included when its responsibilities and decision authority are explicitly scoped.",
       boundary: "Capacity, response expectations, and support responsibilities are explicit. This is not unlimited support or an on-call service.",
     },
     {

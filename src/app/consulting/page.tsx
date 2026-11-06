@@ -6,7 +6,7 @@ import { profile } from "@/content/profile";
 import { portfolioProjects } from "@/content/projects";
 import "./consulting.css";
 
-const title = "Fractional engineering & consulting";
+const title = "Full-stack engineering & software consulting";
 
 export const metadata: Metadata = {
   title,

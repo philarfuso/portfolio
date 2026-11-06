@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { consulting } from "../src/content/consulting.ts";
 import { profile } from "../src/content/profile.ts";
 
-export const kitVersion = "1.0.0";
+export const kitVersion = "1.0.1";
 const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 const templateDirectory = new URL("../consulting-kit/", import.meta.url);
 
