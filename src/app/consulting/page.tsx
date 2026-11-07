@@ -4,7 +4,11 @@ import { SiteHeader } from "@/components/site-header";
 import { consulting, consultingMailto, type ConsultingOfferId } from "@/content/consulting";
 import { profile } from "@/content/profile";
 import { portfolioProjects } from "@/content/projects";
+import { ConsultingLayoutSelector } from "./consulting-layout-selector";
+import { ConsultingProofVisual } from "./consulting-proof-visual";
 import "./consulting.css";
+import "./consulting-layout-selector.css";
+import "./consulting-studio.css";
 
 const title = "Full-stack engineering & software consulting";
 
@@ -41,6 +45,7 @@ export default function ConsultingPage() {
 
   return (
     <main className="consulting-page" id="main-content" tabIndex={-1}>
+      <ConsultingLayoutSelector />
       <section className="consulting-hero" aria-labelledby="consulting-title">
         <SiteHeader current="consulting" />
 
@@ -113,6 +118,7 @@ export default function ConsultingPage() {
             <div className="consulting-proof-list">
               {proof.map((item) => (
                 <article className="consulting-proof" key={item.projectId}>
+                  <ConsultingProofVisual projectId={item.projectId} />
                   <div>
                     <h3>{item.project.name}</h3>
                     <p className="consulting-proof-role">{item.project.role}</p>
