@@ -65,14 +65,14 @@ export default function Home() {
       <SelectedWork />
       <section className="st-home-close" aria-labelledby="home-close-title">
         <div className="studio-shell st-home-close-inner">
-          <p className="studio-label" data-reveal="soft">What’s next</p>
-          <div>
+          <div className="st-home-close-copy">
+            <p className="studio-label" data-reveal="soft">What’s next</p>
             <h2 className="studio-title" id="home-close-title" data-reveal="soft">Working on something tricky?</h2>
             <p data-reveal="soft">I build polished web and mobile products from interface to infrastructure. Tell me what you’re working on.</p>
-            <div className="st-close-actions" data-reveal="soft">
-              <Link className="studio-button" href="/contact">Say hello <span aria-hidden="true">↗</span></Link>
-              <a className="studio-link" href={`mailto:${profile.consulting.email}`}>{profile.consulting.email}</a>
-            </div>
+          </div>
+          <div className="st-close-actions" data-reveal="soft">
+            <Link className="studio-button" href="/contact">Say hello <span aria-hidden="true">↗</span></Link>
+            <a className="studio-link" href={`mailto:${profile.consulting.email}`}>{profile.consulting.email}</a>
           </div>
         </div>
       </section>
