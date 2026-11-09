@@ -15,14 +15,14 @@ const header = await readFile(
   "utf8",
 );
 const css = await readFile(
-  new URL("../src/app/globals.css", import.meta.url),
+  new URL("../src/app/studio-pages.css", import.meta.url),
   "utf8",
 );
 const pdf = await readFile(new URL("../public/resume.pdf", import.meta.url));
 
 test("resume navigation opens the web resume", () => {
   assert.match(header, /id: "resume", label: "Resume", href: "\/resume"/);
-  assert.match(page, /<SiteHeader current="resume" tone="dark"/);
+  assert.match(page, /<SiteHeader current="resume" tone="paper"/);
   assert.match(page, /id="main-content"/);
 });
 
@@ -43,9 +43,9 @@ test("multi-role companies show their complete tenure", () => {
   assert.match(content, /tenure: "1 yr 10 mos"/);
   assert.match(content, /January 2023 to August 2026/);
   assert.match(content, /December 2019 to December 2022/);
-  assert.match(page, /className="resume-company-tenure"/);
+  assert.match(page, /className="st-resume-company-tenure"/);
   assert.match(page, /<span>Total tenure<\/span>/);
-  assert.match(css, /\.resume-company-tenure/);
+  assert.match(css, /\.st-resume-company-tenure/);
 });
 
 test("resume keeps a valid downloadable PDF", () => {
@@ -55,12 +55,12 @@ test("resume keeps a valid downloadable PDF", () => {
 });
 
 test("resume layout has desktop and mobile treatments", () => {
-  assert.match(css, /\.resume-hero/);
-  assert.match(css, /\.resume-technology-grid/);
-  assert.match(css, /\.resume-company/);
+  assert.match(css, /\.st-resume-hero/);
+  assert.match(css, /\.st-resume-technology-grid/);
+  assert.match(css, /\.st-resume-company/);
   assert.match(css, /@media \(max-width: 760px\)/);
   assert.match(
     css,
-    /@media \(max-width: 760px\)[\s\S]*?\.resume-company-tenure\s*\{[\s\S]*?grid-column: 2;[\s\S]*?grid-row: 1;/,
+    /@media \(max-width: 760px\)[\s\S]*?\.st-resume-company-tenure\s*\{[\s\S]*?grid-column: 2;[\s\S]*?grid-row: 1 \/ 3;/,
   );
 });

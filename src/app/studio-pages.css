@@ -1,0 +1,262 @@
+/* Page compositions built on the shared Studio primitives. The homepage hero
+   retains its original illustration and responsive artwork system. */
+.st-home { background: var(--studio-paper); color: var(--studio-ink); }
+/* Contain decorative SVG bleed; all text and controls fit within the hero. */
+.st-home .hero { overflow-x: clip; min-width: 0; background: var(--ink); color: var(--paper); }
+.st-home :is(.hero-stage,.hero-copy) { min-width: 0; }
+.st-home .hero-availability > * { white-space: normal; }
+.st-home .hero-actions { gap: 28px; font: 500 .92rem/1.4 var(--body); letter-spacing: 0; text-transform: none; }
+.st-hero-action { gap: 24px; padding: 16px 24px; border-radius: 999px; background: var(--accent); color: var(--ink); transition: transform 240ms var(--studio-ease), background-color 240ms; }
+.st-hero-action:hover { transform: translateY(-3px); background: var(--accent-bright); }
+.st-hero-resume { gap: 20px; padding: 16px 4px; }
+.st-project-rail { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 38px; margin: 34px 0 0; padding: 18px 0 0; }
+.st-project-rail a { display: flex; align-items: center; min-height: 44px; text-decoration: none; color: var(--paper); font: 400 .72rem/1.5 var(--mono); letter-spacing: .04em; transition: color 200ms; }
+.st-project-rail a:hover { color: var(--accent-bright); }
+.st-project-rail-label { display: flex; align-items: center; gap: 10px; }
+.st-project-rail-label > :last-child { color: #b7c9c9; }
+.st-home-close { padding: 0 0 80px; background: var(--studio-paper); }
+.st-home-close-inner { display: grid; grid-template-columns: .55fr 1fr; gap: 36px; border-radius: var(--studio-radius); padding: clamp(28px,5vw,70px); background: var(--studio-mist); }
+.st-home-close .studio-title { max-width: 17ch; margin-top: 0; }
+.st-home-close-inner > div > p { max-width: 48ch; margin: 24px 0; line-height: 1.8; color: var(--studio-muted); }
+.st-close-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+.st-close-actions .studio-link { overflow-wrap: anywhere; }
+
+/* Shared gallery: generous media, compact context and individual project color. */
+.st-selected-work { padding: 104px 0 112px; color: var(--studio-ink); background: var(--studio-paper); }
+.st-selected-work-index { padding-top: 30px; }
+.st-work-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: end; margin-bottom: 72px; scroll-margin-top: 36px; }
+.st-work-heading .studio-label { margin: 0 0 16px; }
+.st-work-heading h2 { margin: 0; }
+.st-work-heading > p { max-width: 48ch; margin: 0 0 5px; color: var(--studio-muted); line-height: 1.8; }
+.st-projects { display: grid; gap: 112px; }
+.st-project { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(36px,6vw,88px); align-items: center; scroll-margin-top: 48px; }
+.st-project:nth-child(even) { grid-template-columns: 1.22fr .78fr; }
+.st-project:nth-child(even) .st-project-copy { order: 2; }
+.st-project:nth-child(even) .st-project-media { order: 1; }
+.st-project-copy { min-width: 0; }
+.st-project-copy :is(h2,h3) { margin: 16px 0 12px; font: 600 clamp(2.75rem,5vw,4.5rem)/1.02 "Barlow Condensed",sans-serif; letter-spacing: -.025em; }
+.st-project-role { margin: 0; font-size: .92rem; color: var(--studio-muted); }
+.st-project-summary { max-width: 42ch; margin: 26px 0 22px; font-size: 1.05rem; line-height: 1.8; }
+.st-project-scope { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0; margin: 0 0 30px; list-style: none; color: var(--studio-muted); font: .67rem/1.8 var(--mono); }
+.st-project-scope li { position: relative; }
+.st-project-scope li + li::before { content: "·"; position: absolute; left: -10px; }
+.st-project-media { position: relative; display: grid; place-items: center; min-width: 0; height: 510px; margin: 0; overflow: hidden; border-radius: var(--studio-radius); isolation: isolate; }
+.st-project-media figcaption { position: absolute; right: 24px; bottom: 20px; left: 24px; z-index: 3; margin: 0; text-align: center; font: .64rem/1.6 var(--mono); letter-spacing: .03em; }
+.st-project-media-memx { color: var(--paper); background: #244852; }
+.st-market-art { width: 100%; padding: 50px 9% 72px; }
+.st-market-orbit { position: absolute; width: 80%; aspect-ratio: 1; border: 1px solid #7bb3c847; border-radius: 50%; top: -8%; right: -20%; transform: rotate(-22deg); }
+.st-market-orbit::after { content: ""; position: absolute; inset: 14%; border: 1px solid #7bb3c83b; border-radius: 50%; }
+.st-market-art > p { position: relative; margin: 0; font: 500 clamp(2.4rem,4vw,4rem)/1.12 "Barlow Condensed",sans-serif; letter-spacing: -.015em; }
+.st-market-art > p strong { font-weight: 600; color: #a7d9ea; }
+.st-market-art > div { position: relative; display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 52px; max-width: 300px; font: .66rem/1.8 var(--mono); }
+.st-project-media-domani { background: var(--studio-sage); color: #365b4c; }
+.st-product-halo { position: absolute; width: 360px; aspect-ratio: 1; border-radius: 50%; background: #ccd9bb; left: 45%; top: 12%; }
+.st-product-screen { position: relative; width: 205px; height: auto; margin-left: 24%; border-radius: 26px; transform: rotate(5deg); box-shadow: 0 22px 45px #34544224; }
+.st-product-note { position: absolute; top: 100px; left: 8%; font: 500 clamp(1.8rem,2.9vw,2.7rem)/1.1 "Barlow Condensed",sans-serif; }
+.st-project-media-iffers { background: var(--studio-sand); color: #624a38; }
+.st-site-window { position: absolute; width: 80%; top: 16%; left: 6%; transform: rotate(-3deg); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 35px #624a3824; background: #fffaf0; }
+.st-site-toolbar { display: flex; gap: 18px; align-items: center; padding: 10px 14px; font: .55rem/1 var(--mono); color: #6b5b48; }
+.st-site-toolbar > span { color: #aa9170; letter-spacing: 3px; font-size: .45rem; }
+.st-site-photo { position: relative; }
+.st-site-photo > img { display: block; width: 100%; height: auto; aspect-ratio: 1.5; object-fit: cover; }
+.st-site-photo::after { position: absolute; content: ""; inset: 0; background: linear-gradient(180deg,#161b1533,#161b1500 35%,#161b1580); }
+.st-site-title { position: absolute; z-index: 1; inset: 15px 22px; display: flex; flex-direction: column; justify-content: space-between; color: #fff8e8; }
+.st-site-title > span { font: 600 1rem/1.3 "Barlow Condensed",sans-serif; }
+.st-site-title p { margin: 0 0 12px; font: 500 clamp(1.5rem,2.3vw,2.3rem)/1.08 "Barlow Condensed",sans-serif; }
+.st-site-mobile { position: absolute; right: 7%; bottom: 18%; width: 24%; padding: 8px; background: #fffaf0; border-radius: 14px; transform: rotate(7deg); box-shadow: 0 15px 35px #624a3829; }
+.st-site-mobile > span { display: flex; justify-content: space-between; padding: 6px 4px 10px; font: .5rem/1 var(--mono); }
+.st-site-mobile i { font-style: normal; }
+.st-site-mobile img { display: block; width: 100%; height: auto; aspect-ratio: .85; object-fit: cover; border-radius: 5px; }
+.st-site-mobile p { padding: 0 4px; font: 500 .85rem/1.2 "Barlow Condensed",sans-serif; }
+
+/* Work is a quiet gallery entrance, rather than another poster. */
+.st-work-page,.st-resume,.st-contact,.st-not-found { min-height: 100svh; background: var(--studio-paper); color: var(--studio-ink); }
+.st-work-hero > .site-header,.st-resume-hero > .site-header,.st-contact-shell > .site-header,.st-not-found > .site-header { width: min(100% - 80px,1400px); margin: 0 auto; padding-top: 38px; }
+.st-work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; padding-top: 100px; padding-bottom: 64px; }
+.st-work-intro > .studio-label { grid-column: 1 / -1; margin: 0; }
+.st-work-intro h1 { margin: 0; font: 600 clamp(5rem,10vw,9rem)/.95 "Barlow Condensed",sans-serif; letter-spacing: -.035em; }
+.st-work-intro > p:last-child { max-width: 45ch; margin: 0 0 6px; color: var(--studio-muted); font-size: 1.1rem; line-height: 1.8; }
+
+/* Resume: content first, open chronology and discreet skills grouping. */
+.st-resume-hero-layout,.st-resume-contact,.st-resume-technologies,.st-resume-experience,.st-resume-ventures,.st-resume-footer { width: min(100% - 80px,1180px); margin-inline: auto; }
+.st-resume-hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; padding: 94px 0 38px; }
+.st-resume-hero-layout h1 { max-width: 14ch; margin: 18px 0 0; font: 600 clamp(3.4rem,6vw,5.6rem)/.98 "Barlow Condensed",sans-serif; letter-spacing: -.025em; }
+.st-resume-hero-summary > p { max-width: 48ch; margin: 0 0 26px; color: var(--studio-muted); font-size: 1.05rem; line-height: 1.8; }
+.st-resume-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 28px; padding: 20px 0 0; font: 400 .74rem/1.8 var(--mono); font-style: normal; color: var(--studio-muted); }
+.st-resume-contact a { text-underline-offset: 5px; }
+.st-resume-technologies { padding: 84px 0 90px; }
+.st-resume-technologies header > p,.st-resume-section-heading > p,.st-resume-footer > div > p { margin: 0 0 12px; font: .68rem/1.7 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--studio-muted); }
+.st-resume-technologies h2,.st-resume-section-heading h2,.st-resume-footer h2 { margin: 0; font: 600 clamp(2.4rem,4vw,3.6rem)/1.07 "Barlow Condensed",sans-serif; }
+.st-resume-technology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 65px; margin-top: 32px; padding: 36px 42px; border-radius: var(--studio-radius); background: var(--studio-mist); }
+.st-resume-technology-grid h3 { margin: 0 0 12px; font: 600 1.2rem/1.3 "Barlow Condensed",sans-serif; }
+.st-resume-technology-grid ul { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0; margin: 0; list-style: none; font-size: .87rem; line-height: 1.8; color: var(--studio-muted); }
+.st-resume-experience { padding-bottom: 90px; }
+.st-resume-company-list { display: grid; gap: 70px; margin-top: 48px; }
+.st-resume-company { display: grid; grid-template-columns: .6fr 1.4fr; gap: 65px; }
+.st-resume-company > header h3 { margin: 0; font: 600 2.1rem/1.1 "Barlow Condensed",sans-serif; }
+.st-resume-company-location { margin: 10px 0 22px; font-size: .87rem; color: var(--studio-muted); }
+.st-resume-company-tenure { display: grid; gap: 5px; margin: 0; font-size: .9rem; }
+.st-resume-company-tenure span { font: .65rem/1.5 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--studio-muted); }
+.st-resume-role-list { display: grid; gap: 44px; }
+.st-resume-role h4,.st-resume-venture-grid h4 { margin: 0; font: 600 1.55rem/1.2 "Barlow Condensed",sans-serif; }
+.st-resume-role header > p { margin: 8px 0 18px; color: var(--studio-muted); font: .68rem/1.6 var(--mono); }
+.st-resume-role ul,.st-resume-venture-grid ul { display: grid; gap: 12px; padding-left: 18px; margin: 0; max-width: 65ch; list-style: disc; font-size: .94rem; line-height: 1.85; }
+.st-resume-role li::marker,.st-resume-venture-grid li::marker { color: #728a86; }
+.st-resume-ventures { padding-bottom: 80px; }
+.st-resume-venture-grid { display: grid; gap: 44px; margin-top: 36px; padding: 40px 48px; background: var(--studio-sage); border-radius: var(--studio-radius); }
+.st-resume-venture-grid article > header { display: flex; align-items: start; justify-content: space-between; gap: 28px; margin-bottom: 22px; }
+.st-resume-venture-grid h3 { margin: 0; font: 600 1.9rem/1.1 "Barlow Condensed",sans-serif; }
+.st-resume-venture-grid header p { margin: 9px 0 0; color: var(--studio-muted); font: .68rem/1.7 var(--mono); }
+.st-resume-venture-grid h4 { margin-bottom: 14px; }
+.st-resume-footer { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 40px 0 72px; }
+.st-resume-footer > div:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
+
+/* Contact: one welcoming space, direct channels, no form friction. */
+.st-contact-layout,.st-contact-footer { width: min(100% - 80px,1180px); margin-inline: auto; }
+.st-contact-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: 80px; padding: 112px 0 76px; align-items: center; }
+.st-contact-intro h1 { margin: 18px 0 26px; font: 600 clamp(4.5rem,8vw,7.5rem)/.95 "Barlow Condensed",sans-serif; letter-spacing: -.035em; }
+.st-contact-intro > p:last-of-type { max-width: 36ch; font-size: 1.1rem; line-height: 1.8; color: var(--studio-muted); }
+.st-contact-consulting { display: grid; gap: 12px; margin-top: 38px; }
+.st-contact-consulting p { margin: 0; font-size: .9rem; }
+.st-contact-consulting > a:last-child { width: fit-content; text-underline-offset: 5px; font-size: .87rem; color: var(--studio-muted); overflow-wrap: anywhere; }
+.st-contact-channels { display: grid; gap: 34px; background: var(--studio-sage); border-radius: var(--studio-radius); padding: 52px 42px; }
+.st-contact-channel { position: relative; display: grid; gap: 12px; padding-right: 26px; text-decoration: none; min-height: 70px; }
+.st-contact-channel-label { font: .67rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--studio-muted); }
+.st-contact-channel-value { font-size: clamp(1rem,1.7vw,1.35rem); line-height: 1.4; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.st-contact-channel-arrow { position: absolute; right: 0; bottom: 5px; font-size: 1.5rem; transition: transform 240ms var(--studio-ease); }
+.st-contact-channel:hover .st-contact-channel-arrow { transform: translate(3px,-3px); }
+.st-contact-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding: 0 0 48px; font-size: .78rem; color: var(--studio-muted); }
+.st-contact-footer p { margin: 0; }
+.st-contact-footer a { text-underline-offset: 5px; }
+
+.st-not-found-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: center; width: min(100% - 80px,1180px); margin: 0 auto; padding: 100px 0; }
+.st-not-found-code { display: grid; place-items: center; aspect-ratio: 1; border-radius: 48% 48% 36% 36%; background: var(--studio-mist); color: #467481; font: 400 clamp(5rem,14vw,12rem)/1 var(--display); letter-spacing: -.06em; }
+.st-not-found-copy > p { font: .7rem/1.7 var(--mono); color: var(--studio-muted); }
+.st-not-found-copy h1 { max-width: 16ch; margin: 18px 0 30px; font: 600 clamp(2.8rem,5vw,4.6rem)/1.02 "Barlow Condensed",sans-serif; }
+.st-not-found-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; }
+.st-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 1024px) {
+  .st-project { gap: 32px; }
+  .st-project-media { height: 450px; }
+  .st-product-screen { width: 176px; margin-left: 28%; }
+  .st-product-note { left: 7%; font-size: 1.9rem; }
+  .st-resume-hero-layout,.st-contact-layout { gap: 40px; }
+  .st-contact-channels { padding: 38px 28px; }
+  .st-resume-company { grid-template-columns: .65fr 1.35fr; gap: 36px; }
+}
+@media (max-width: 760px) {
+  .st-home .hero-actions { justify-content: flex-start; flex-wrap: wrap; gap: 12px 25px; }
+  .st-home .hero-copy { width: 100%; }
+  .st-home .hero-availability { width: 100%; overflow-wrap: anywhere; }
+  .st-home .hero-actions .st-hero-action { min-height: 50px; padding: 14px 20px; }
+  .st-home .hero-actions .st-hero-resume { min-height: 50px; padding: 14px 0; }
+  .st-home .hero-intro { max-width: 28ch; position: relative; }
+  .st-home .hero-stage::before { background-position: right 5px top 10px; opacity: .5; }
+  .st-project-rail { justify-content: flex-start; gap: 5px 24px; margin-top: 26px; padding-top: 8px; }
+  .st-project-rail a { font-size: .63rem; min-height: 44px; }
+  .st-project-rail-label { gap: 8px; }
+  .st-home-close { padding: 0 20px 36px; }
+  .st-home-close-inner { width: 100%; grid-template-columns: 1fr; gap: 24px; padding: 30px 24px; }
+  .st-home-close-inner > .studio-label { margin: 0; }
+  .st-close-actions { gap: 20px; align-items: start; flex-direction: column; }
+  .st-close-actions .studio-link { font-size: .8rem; }
+  .st-selected-work { padding: 64px 0 72px; }
+  .st-selected-work-index { padding-top: 12px; }
+  .st-work-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 44px; }
+  .st-work-heading > p { font-size: .95rem; }
+  .st-projects { gap: 72px; }
+  .st-project,.st-project:nth-child(even) { grid-template-columns: 1fr; gap: 28px; }
+  .st-project:nth-child(even) .st-project-copy,.st-project:nth-child(even) .st-project-media { order: initial; }
+  .st-project-copy :is(h2,h3) { margin-top: 12px; font-size: 3rem; }
+  .st-project-summary { margin: 22px 0 18px; font-size: .98rem; }
+  .st-project-scope { margin-bottom: 24px; }
+  .st-project-media { height: 420px; border-radius: 24px; }
+  .st-market-art { padding-inline: 10%; }
+  .st-market-art > p { font-size: 3.3rem; }
+  .st-market-art > div { max-width: 250px; margin-top: 38px; }
+  .st-product-screen { width: 166px; margin-left: 8%; transform: translateY(-12px) rotate(5deg); }
+  .st-product-note { display: none; }
+  .st-project-media figcaption { font-size: .55rem; bottom: 17px; }
+  .st-site-window { top: 22%; width: 84%; }
+  .st-site-title { inset: 12px 16px; }
+  .st-site-title > span { font-size: .9rem; }
+  .st-site-title p { font-size: 1.7rem; margin-bottom: 6px; }
+  .st-site-mobile { bottom: 19%; width: 25%; }
+  .st-site-mobile p { font-size: .75rem; }
+  .st-work-hero > .site-header,.st-resume-hero > .site-header,.st-contact-shell > .site-header,.st-not-found > .site-header { width: calc(100% - 40px); padding-top: 28px; }
+  .st-work-intro { grid-template-columns: 1fr; gap: 20px; padding-top: 70px; padding-bottom: 48px; }
+  .st-work-intro h1 { font-size: 6rem; }
+  .st-work-intro > p:last-child { font-size: 1rem; }
+  .st-resume-hero-layout,.st-resume-contact,.st-resume-technologies,.st-resume-experience,.st-resume-ventures,.st-resume-footer,.st-contact-layout,.st-contact-footer,.st-not-found-layout { width: calc(100% - 40px); }
+  .st-resume-hero-layout { grid-template-columns: 1fr; gap: 26px; padding: 64px 0 28px; }
+  .st-resume-hero-layout h1 { font-size: 3.5rem; }
+  .st-resume-hero-summary > p { font-size: 1rem; }
+  .st-resume-contact { column-gap: 22px; font-size: .68rem; }
+  .st-resume-contact > span { flex-basis: 100%; }
+  .st-resume-technologies { padding: 64px 0; }
+  .st-resume-technology-grid { grid-template-columns: 1fr; gap: 26px; padding: 28px 24px; margin-top: 24px; }
+  .st-resume-company { grid-template-columns: 1fr; gap: 26px; }
+  .st-resume-company-list { gap: 54px; margin-top: 32px; }
+  .st-resume-company > header { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: start; }
+  .st-resume-company > header h3 { grid-column: 1; }
+  .st-resume-company-location { margin: 8px 0 0; grid-column: 1; }
+  .st-resume-company-tenure { grid-column: 2; grid-row: 1 / 3; text-align: right; font-size: .8rem; }
+  .st-resume-role ul,.st-resume-venture-grid ul { font-size: .9rem; line-height: 1.8; gap: 12px; }
+  .st-resume-experience { padding-bottom: 64px; }
+  .st-resume-venture-grid { margin-top: 26px; padding: 28px 24px; }
+  .st-resume-venture-grid article > header { flex-direction: column; gap: 6px; }
+  .st-resume-ventures { padding-bottom: 36px; }
+  .st-resume-footer { flex-direction: column; align-items: start; gap: 25px; padding-bottom: 48px; }
+  .st-contact-layout { grid-template-columns: 1fr; gap: 42px; padding: 64px 0 40px; }
+  .st-contact-intro h1 { font-size: 5rem; }
+  .st-contact-intro > p:last-of-type { font-size: 1rem; }
+  .st-contact-consulting { margin-top: 28px; }
+  .st-contact-channels { padding: 34px 26px; gap: 30px; }
+  .st-contact-channel-value { font-size: 1.1rem; }
+  .st-contact-footer { flex-direction: column; align-items: start; gap: 18px; }
+  .st-not-found-layout { grid-template-columns: 1fr; gap: 36px; padding: 56px 0; }
+  .st-not-found-code { max-width: 240px; width: 74%; font-size: 7rem; justify-self: center; }
+  .st-not-found-copy h1 { font-size: 3rem; }
+}
+@media (max-width: 360px) {
+  .st-project-media { height: 370px; }
+  .st-product-screen { width: 148px; margin-left: 8%; }
+  .st-product-note { font-size: 1.7rem; left: 6%; }
+  .st-market-art > p { font-size: 2.8rem; }
+  .st-site-title p { font-size: 1.45rem; }
+  .st-site-title > span { font-size: .75rem; }
+  .st-site-mobile { padding: 6px; }
+  .st-site-mobile p { font-size: .65rem; }
+  .st-site-mobile > span { font-size: .4rem; }
+  .st-contact-channel-value { font-size: .98rem; }
+  .st-resume-company > header h3 { font-size: 1.8rem; }
+  .st-resume-company-tenure { font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-hero-action,.st-contact-channel-arrow { transition: none; transform: none !important; }
+}
+@media print {
+  .st-resume { background: white; color: #14272c; }
+  .st-resume-hero > .site-header,.st-resume-footer { display: none; }
+  .st-resume-hero-layout,.st-resume-contact,.st-resume-technologies,.st-resume-experience,.st-resume-ventures { width: 100%; }
+  .st-resume-hero-layout { grid-template-columns: 1fr; gap: 12px; padding: 0 0 12px; }
+  .st-resume-hero-layout h1 { max-width: none; font-size: 2.3rem; }
+  .st-resume-hero-summary > p { margin-bottom: 8px; }
+  .st-resume-hero-summary .studio-button { display: none; }
+  .st-resume-contact { gap: 8px 20px; padding-top: 0; }
+  .st-resume-technologies { padding: 28px 0; }
+  .st-resume-technologies h2,.st-resume-section-heading h2 { font-size: 1.8rem; }
+  .st-resume-technology-grid { padding: 0; background: none; margin-top: 20px; gap: 18px 32px; }
+  .st-resume-company { grid-template-columns: 1fr; gap: 18px; }
+  .st-resume-company-list { margin-top: 22px; gap: 30px; }
+  .st-resume-company > header { break-after: avoid; }
+  .st-resume-company-location { margin: 6px 0; }
+  .st-resume-company-tenure { display: flex; gap: 10px; }
+  .st-resume-role h4 { break-after: avoid; }
+  .st-resume-role li,.st-resume-venture-grid li { break-inside: avoid; }
+  .st-resume-experience { padding-bottom: 30px; }
+  .st-resume-venture-grid { padding: 0; margin-top: 22px; background: none; gap: 28px; }
+  .st-resume-ventures { padding-bottom: 0; }
+  .st-resume a { color: inherit; }
+}

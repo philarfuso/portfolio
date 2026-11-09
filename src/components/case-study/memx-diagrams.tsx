@@ -12,10 +12,8 @@ const configurationInputs = [
 export function MemxConfigurationDiagram() {
   return (
     <figure
-      className="memx-system-figure memx-configuration-figure"
+      className="sc-diagram"
       data-reveal="scale"
-      data-reveal-group
-      data-reveal-stagger="90"
       id="configuration-diagram"
     >
       <figcaption>
@@ -28,15 +26,15 @@ export function MemxConfigurationDiagram() {
         and finally a sanitized request.
       </p>
 
-      <div className="configuration-flow" data-reveal="soft" data-reveal-group data-reveal-stagger="80" aria-hidden="true">
-        <div className="diagram-node configuration-active" data-reveal="soft">
+      <div className="sc-diagram-flow" aria-hidden="true">
+        <div className="sc-diagram-node sc-diagram-active">
           <span>Selection</span>
           <strong>Active market</strong>
         </div>
 
-        <div className="configuration-branch" data-reveal="soft" data-reveal-group data-reveal-stagger="55" role="presentation">
+        <div className="sc-diagram-branch" role="presentation">
           {configurationInputs.map((input) => (
-            <div className="diagram-node" data-reveal="soft" key={input.title}>
+            <div className="sc-diagram-node" key={input.title}>
               <span>Input</span>
               <strong>{input.title}</strong>
               <small>{input.detail}</small>
@@ -44,20 +42,20 @@ export function MemxConfigurationDiagram() {
           ))}
         </div>
 
-        <div className="diagram-node configuration-context" data-reveal="soft">
-          <i className="configuration-input-wire" />
+        <div className="sc-diagram-node sc-diagram-context">
+          <i className="sc-diagram-input-wire" />
           <span>Shared context</span>
           <strong>Shared platform context</strong>
           <small>One description of the current market</small>
         </div>
 
-        <div className="configuration-output" data-reveal="soft" data-reveal-group data-reveal-stagger="65">
-          <div className="diagram-node" data-reveal="soft">
+        <div className="sc-diagram-output">
+          <div className="sc-diagram-node">
             <span>Frontend</span>
             <strong>Reusable UI</strong>
             <small>Fields + visibility + validation</small>
           </div>
-          <div className="diagram-node configuration-request" data-reveal="soft">
+          <div className="sc-diagram-node sc-diagram-request">
             <span>Output</span>
             <strong>Sanitized request</strong>
           </div>

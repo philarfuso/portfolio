@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="work-page" id="main-content">
-      <section className="work-page-hero" aria-labelledby="work-page-title">
-        <SiteHeader current="work" tone="dark" />
+    <main className="st-work-page" id="main-content" tabIndex={-1}>
+      <section className="st-work-hero" aria-labelledby="work-page-title">
+        <SiteHeader current="work" tone="paper" />
 
         <div
-          className="work-page-hero-inner"
+          className="studio-shell st-work-intro"
           data-reveal-group
           data-reveal-stagger="95"
         >
-          <p data-reveal="soft">Portfolio</p>
+          <p className="studio-label" data-reveal="soft">Portfolio</p>
           <h1 id="work-page-title" data-reveal="left">Work</h1>
           <p data-reveal="right">
             A selection of products, platforms, and client work that shows how
@@ -35,6 +35,7 @@ export default function WorkPage() {
         projects={portfolioProjects}
         showHeading={false}
         title="Portfolio projects"
+        variant="index"
       />
     </main>
   );

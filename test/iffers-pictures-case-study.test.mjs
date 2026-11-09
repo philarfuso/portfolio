@@ -59,12 +59,12 @@ test("Iffer’s Pictures route and transparent public link are implemented", () 
 });
 
 test("Iffer’s Pictures uses its project-scoped photographic theme", () => {
-  assert.match(page, /SiteHeader tone="dark"/);
-  assert.match(page, /iffers-origin-intro/);
+  assert.match(page, /SiteHeader current="work" tone="paper"/);
+  assert.match(page, /study\.origin\.body/);
   assert.match(themes, /\.case-study-iffers\s*\{/);
   assert.match(themes, /--case-ink: #302925/);
   assert.match(themes, /--case-highlight: #98563d/);
-  assert.match(themes, /CONTACT SHEET \/ PRODUCTION PHOTOGRAPHY/);
-  assert.match(themes, /\.case-study-iffers \.iffers-process header\s*\{[\s\S]*?container-type: inline-size/);
-  assert.match(themes, /\.case-study-iffers \.iffers-process h2\s*\{[\s\S]*?12\.4cqi/);
+  assert.doesNotMatch(themes, /CONTACT SHEET \/ PRODUCTION PHOTOGRAPHY/);
+  assert.match(page, /id="ownership"/);
+  assert.match(gallery, /id="selected-photography"/);
 });

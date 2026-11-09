@@ -23,8 +23,8 @@ test("Domani evidence retains its snapshot and limitations", () => {
   assert.match(content, /641/);
   assert.match(content, /current task records/);
   assert.match(content, /31 \/ 9/);
-  assert.match(page, /domani-ledger-ratio/);
-  assert.match(themes, /\.domani-ledger-ratio[\s\S]*white-space: nowrap/);
+  assert.match(page, /study\.evidence\.metrics\.map/);
+  assert.match(page, /study\.evidence\.caveats\.map/);
   assert.match(content, /89/);
   assert.match(content, /recorded lifetime transactions/);
   assert.match(content, /not a recoverable lifetime creation total/);
@@ -45,7 +45,7 @@ test("Domani route integrates its planning principles with real product media", 
   assert.match(projects, /route: "\/work\/domani"/);
   assert.doesNotMatch(page, /DomaniPlanningLoop/);
   assert.doesNotMatch(page, /DomaniOwnershipFlow/);
-  assert.match(page, /domani-product-principles/);
+  assert.match(page, /aria-label="The daily planning loop"/);
   assert.match(page, /study\.principles\.map/);
   assert.match(loop, /className="sr-only"/);
   assert.match(loop, /<figcaption/);
@@ -64,14 +64,11 @@ test("Domani credits shared ownership accurately", () => {
 });
 
 test("Domani uses its project-scoped botanical case-study theme", () => {
-  assert.match(page, /SiteHeader tone="dark"/);
-  assert.match(page, /Plan tomorrow, tonight/);
+  assert.match(page, /SiteHeader current="work" tone="paper"/);
+  assert.match(page, /id="product-view"/);
   assert.match(themes, /\.case-study-domani\s*\{/);
   assert.match(themes, /--case-ink: #17352f/);
   assert.match(themes, /--case-highlight: #d7aa5f/);
-  assert.match(themes, /\.case-study-domani \.domani-product-view/);
-  assert.match(
-    themes,
-    /\.case-study-domani \.domani-evidence-secondary article\s*\{[\s\S]*?align-items: start/,
-  );
+  assert.match(page, /study\.ownership\.body/);
+  assert.match(page, /id="evidence"/);
 });

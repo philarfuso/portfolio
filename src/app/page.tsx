@@ -7,7 +7,7 @@ import { featuredProjects } from "@/content/projects";
 
 export default function Home() {
   return (
-    <main className="portfolio-home" id="main-content">
+    <main className="portfolio-home st-home" id="main-content" tabIndex={-1}>
       <section className="hero" aria-labelledby="hero-title">
         <SiteHeader />
 
@@ -35,10 +35,10 @@ export default function Home() {
             </p>
 
             <div className="hero-actions" aria-label="Portfolio actions">
-              <a className="primary-action" href="#work">
+              <a className="st-hero-action" href="#work">
                 Explore my work <span aria-hidden="true">→</span>
               </a>
-              <a className="secondary-action" href="/resume.pdf" download>
+              <a className="st-hero-resume" href="/resume.pdf" download>
                 Resume <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -46,16 +46,16 @@ export default function Home() {
         </div>
 
         <nav
-          className="project-rail"
+          className="st-project-rail"
           data-reveal-group
           data-reveal-stagger="60"
           aria-label="Selected work"
         >
           {featuredProjects.map((project) => (
             <a data-reveal="soft" href={`#${project.id}`} key={project.name}>
-              <span className="project-rail-label">
+              <span className="st-project-rail-label">
                 <span>{project.name}</span>
-                <span className="project-rail-divider" aria-hidden="true" />
+                <span aria-hidden="true">·</span>
                 <span>{project.discipline}</span>
               </span>
             </a>
@@ -63,32 +63,17 @@ export default function Home() {
         </nav>
       </section>
       <SelectedWork />
-      <section
-        className="home-close"
-        data-reveal-group
-        data-reveal-stagger="100"
-        aria-labelledby="home-close-title"
-      >
-        <p data-reveal="soft">What’s next</p>
-        <div data-reveal="left" data-reveal-group data-reveal-stagger="75">
-          <h2 id="home-close-title" data-reveal="soft" aria-label="Working on something tricky">
-            <span aria-hidden="true">Working on</span>
-            <span aria-hidden="true">something tricky</span>
-          </h2>
-          <p data-reveal="soft">
-            I build polished web and mobile products from interface to
-            infrastructure. Tell me what you’re working on.
-          </p>
-          <Link className="primary-action" data-reveal="soft" href="/contact">
-            Say hello
-          </Link>
-          <a
-            className="home-close-email"
-            data-reveal="soft"
-            href={`mailto:${profile.consulting.email}`}
-          >
-            {profile.consulting.email}
-          </a>
+      <section className="st-home-close" aria-labelledby="home-close-title">
+        <div className="studio-shell st-home-close-inner">
+          <p className="studio-label" data-reveal="soft">What’s next</p>
+          <div>
+            <h2 className="studio-title" id="home-close-title" data-reveal="soft">Working on something tricky?</h2>
+            <p data-reveal="soft">I build polished web and mobile products from interface to infrastructure. Tell me what you’re working on.</p>
+            <div className="st-close-actions" data-reveal="soft">
+              <Link className="studio-button" href="/contact">Say hello <span aria-hidden="true">↗</span></Link>
+              <a className="studio-link" href={`mailto:${profile.consulting.email}`}>{profile.consulting.email}</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

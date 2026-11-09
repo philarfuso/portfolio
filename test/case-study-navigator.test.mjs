@@ -27,7 +27,7 @@ test("case studies use one project-registry-driven navigator", () => {
   assert.match(component, /aria-expanded=\{isOpen\}/);
   assert.match(component, /event\.key === "Escape"/);
   assert.match(component, /pointerdown/);
-  assert.match(component, /onMouseEnter=\{\(\) => setIsOpen\(true\)\}/);
+  assert.match(component, /setIsOpen\(\(open\) => !open\)/);
   assert.match(component, /aria-label="Case study destinations"/);
   assert.match(component, /Previous case/);
   assert.match(component, /All work/);
@@ -40,13 +40,13 @@ test("case studies use one project-registry-driven navigator", () => {
   assert.match(projects, /id: "iffers-pictures"/);
 });
 
-test("every case study renders the floating navigator instead of a static footer", () => {
+test("every case study has enhanced navigation and a server-rendered continuation", () => {
   assert.match(memx, /CaseStudyNavigator currentProjectId="memx"/);
   assert.match(domani, /CaseStudyNavigator currentProjectId="domani"/);
   assert.match(iffers, /CaseStudyNavigator currentProjectId="iffers-pictures"/);
 
   for (const page of [memx, domani, iffers]) {
-    assert.doesNotMatch(page, /className="case-footer/);
+    assert.match(page, /CaseStudyFooter currentProjectId=/);
   }
 });
 
@@ -57,9 +57,9 @@ test("the navigator is fixed, responsive, accessible, and theme-aware", () => {
   assert.match(css, /env\(safe-area-inset-right\)/);
   assert.match(css, /--case-paper/);
   assert.match(css, /--case-ink/);
-  assert.match(css, /--case-highlight/);
+  assert.doesNotMatch(css, /\.case-navigator\[data-open="true"\] \.case-navigator-trigger\s*\{[^}]*visibility: hidden/);
   assert.match(css, /\.case-navigator\s*\{[\s\S]*?width: 54px/);
-  assert.match(css, /\.case-navigator\[data-open="true"\]\s*\{[\s\S]*?width: min\(430px/);
+  assert.match(css, /width: min\(430px/);
   assert.match(css, /\.case-navigator-link\s*\{[\s\S]*?min-height: 52px/);
   assert.match(css, /\.case-navigator-arrow\s*\{[\s\S]*?width: 14px/);
   assert.match(css, /border-radius: 999px/);

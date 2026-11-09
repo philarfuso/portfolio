@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { featuredProjects, type FeaturedProject } from "@/content/projects";
+import { domaniCaseStudy } from "@/content/case-studies/domani";
 
 type SelectedWorkProps = {
   anchorId?: string;
@@ -8,207 +9,100 @@ type SelectedWorkProps = {
   projects?: readonly FeaturedProject[];
   showHeading?: boolean;
   title?: string;
+  variant?: "featured" | "index";
 };
 
-type ArtworkProps = {
-  reveal: "left" | "right";
-};
-
-function MemxArtwork({ reveal }: ArtworkProps) {
-  return (
-    <div
-      className="work-art work-art-memx"
-      data-reveal={reveal}
-      role="img"
-      aria-label="One shared platform supports many markets through member, trading, and operations tools."
-    >
-      <div className="memx-simple" aria-hidden="true">
-        <div className="memx-simple-frame memx-simple-frame-one" />
-        <div className="memx-simple-frame memx-simple-frame-two" />
-        <div className="memx-simple-type">
-          <span>One platform</span>
-          <strong>Many markets</strong>
+function ProjectArtwork({ artwork }: Pick<FeaturedProject, "artwork">) {
+  if (artwork === "memx") {
+    return (
+      <figure className="st-project-media st-project-media-memx" data-reveal="soft">
+        <div className="st-market-art" aria-hidden="true">
+          <span className="st-market-orbit" />
+          <p>One platform.<br /><strong>Many markets.</strong></p>
+          <div><span>Member tools</span><span>Trading tools</span><span>Operations tools</span></div>
         </div>
-        <div className="memx-simple-tools">
-          <span>Member tools</span>
-          <span>Trading tools</span>
-          <span>Operations tools</span>
+        <figcaption>Conceptual platform illustration</figcaption>
+      </figure>
+    );
+  }
+  if (artwork === "domani") {
+    return (
+      <figure className="st-project-media st-project-media-domani" data-reveal="soft">
+        <div className="st-product-halo" aria-hidden="true" />
+        <Image
+          className="st-product-screen"
+          src="/images/domani/today-screen.png"
+          alt={domaniCaseStudy.media.alt}
+          width={1008}
+          height={2126}
+          sizes="(max-width: 760px) 190px, 240px"
+        />
+        <div className="st-product-note" aria-hidden="true">A little clarity<br />for tomorrow.</div>
+        <figcaption>Production app · demonstration content</figcaption>
+      </figure>
+    );
+  }
+  return (
+    <figure className="st-project-media st-project-media-iffers" data-reveal="soft">
+      <div className="st-site-window">
+        <div className="st-site-toolbar" aria-hidden="true"><span>● ● ●</span>ifferspictures.com</div>
+        <div className="st-site-photo">
+          <Image
+            src="/images/iffers-pictures/maternity-session.jpg"
+            alt="Client photography displayed in an Iffer’s Pictures website composition."
+            width={1080}
+            height={720}
+            sizes="(max-width: 760px) 80vw, 42vw"
+          />
+          <div className="st-site-title" aria-hidden="true"><span>Iffer’s Pictures</span><p>Heartfelt moments,<br />beautifully captured.</p></div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function DomaniArtwork({ reveal }: ArtworkProps) {
-  return (
-    <div
-      className="work-art work-art-domani"
-      data-reveal={reveal}
-      aria-hidden="true"
-    >
-      <div className="domani-orbit domani-orbit-one" />
-      <div className="domani-orbit domani-orbit-two" />
-      <div className="domani-device">
-        <div className="domani-status">
-          <span>Tomorrow</span>
-          <span>8:42</span>
-        </div>
-        <p className="domani-date">Make room for what matters.</p>
-        <div className="domani-priority">
-          <span>Top priority</span>
-          <strong>One clear thing</strong>
-        </div>
-        <div className="domani-task"><span />Plan before the day begins</div>
-        <div className="domani-task"><span />Carry forward with intent</div>
-        <div className="domani-progress"><span /></div>
+      <div className="st-site-mobile" aria-hidden="true">
+        <span>IP <i>Menu</i></span>
+        <Image src="/images/iffers-pictures/family-session.jpg" alt="" width={1080} height={720} sizes="(max-width: 760px) 25vw, 12vw" />
+        <p>Sessions for every chapter.</p>
       </div>
-      <p className="domani-caption">PLAN / PRIORITIZE / FOLLOW THROUGH</p>
-    </div>
+      <figcaption>Responsive client website · client photography</figcaption>
+    </figure>
   );
-}
-
-function IffersArtwork({ reveal }: ArtworkProps) {
-  return (
-    <div
-      className="work-art work-art-iffers"
-      data-reveal={reveal}
-      role="img"
-      aria-label="Responsive desktop and mobile views of the live Iffer’s Pictures photography website."
-    >
-      <div className="iffers-site-preview" aria-hidden="true">
-        <div className="iffers-browser iffers-browser-desktop">
-          <div className="iffers-browser-bar">
-            <span className="iffers-browser-dots" />
-            <span>ifferspictures.com</span>
-          </div>
-          <div className="iffers-browser-page">
-            <Image
-              src="/images/iffers-pictures/maternity-session.jpg"
-              alt=""
-              fill
-              sizes="(max-width: 760px) 76vw, 42vw"
-            />
-            <div className="iffers-browser-nav">
-              <strong>Iffer’s Pictures</strong>
-              <span>Sessions&nbsp;&nbsp; Portfolio&nbsp;&nbsp; Inquire</span>
-            </div>
-            <div className="iffers-browser-copy">
-              <span>Bergen County, NJ</span>
-              <strong>Heartfelt moments,<br />beautifully captured.</strong>
-              <i>Inquire</i>
-            </div>
-          </div>
-        </div>
-
-        <div className="iffers-browser iffers-browser-mobile">
-          <div className="iffers-mobile-bar">
-            <strong>IP</strong>
-            <span>Menu</span>
-          </div>
-          <div className="iffers-mobile-photo">
-            <Image
-              src="/images/iffers-pictures/family-session.jpg"
-              alt=""
-              fill
-              sizes="(max-width: 760px) 30vw, 15vw"
-            />
-          </div>
-          <p>Sessions for every chapter.</p>
-          <span className="iffers-mobile-action">Explore sessions</span>
-        </div>
-
-        <p className="iffers-preview-caption">
-          Responsive client website <span>Live in production</span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function ProjectArtwork({
-  artwork,
-  reveal,
-}: Pick<FeaturedProject, "artwork"> & ArtworkProps) {
-  if (artwork === "memx") return <MemxArtwork reveal={reveal} />;
-  if (artwork === "domani") return <DomaniArtwork reveal={reveal} />;
-  return <IffersArtwork reveal={reveal} />;
 }
 
 export function SelectedWork({
   anchorId = "work",
-  description =
-    "Full-stack platforms, mobile products, and client websites—work spanning architecture, interface design, and production delivery.",
+  description = "Full-stack platforms, mobile products, and client websites—work spanning architecture, interface design, and production delivery.",
   projects = featuredProjects,
   showHeading = true,
   title = "Selected work",
+  variant = "featured",
 }: SelectedWorkProps = {}) {
   const titleId = `${anchorId}-title`;
-
+  const ProjectHeading = showHeading ? "h3" : "h2";
   return (
-    <section
-      className="selected-work"
-      aria-label={showHeading ? undefined : title}
-      aria-labelledby={showHeading ? titleId : undefined}
-    >
-      {showHeading ? (
-        <header className="work-heading" id={anchorId}>
-          <div
-            className="work-heading-inner"
-            data-reveal-group
-            data-reveal-stagger="90"
-          >
-            <h2 id={titleId} data-reveal="left">{title}</h2>
+    <section className={`st-selected-work st-selected-work-${variant}`} aria-label={showHeading ? undefined : title} aria-labelledby={showHeading ? titleId : undefined}>
+      <div className="studio-shell">
+        {showHeading ? (
+          <header className="st-work-heading" id={anchorId}>
+            <div data-reveal="soft"><p className="studio-label">A few things I’ve helped build</p><h2 className="studio-title" id={titleId}>{title}</h2></div>
             <p data-reveal="soft">{description}</p>
-          </div>
-        </header>
-      ) : null}
-
-      <div className="work-index" id={showHeading ? undefined : anchorId}>
-        {projects.map((project, index) => {
-          const artworkDirection = index % 2 === 0 ? "right" : "left";
-
-          return (
-          <article
-            className={`work-entry work-entry-${project.id}`}
-            data-reveal-group
-            data-reveal-stagger="100"
-            id={project.id}
-            key={project.id}
-            aria-labelledby={`${project.id}-title`}
-          >
-            <div
-              className="work-entry-copy"
-              data-reveal-group
-              data-reveal-stagger="65"
-            >
-              {project.id === "memx" ? null : (
-                <div className="work-entry-meta" data-reveal="soft">
-                  <span>{project.discipline}</span>
-                </div>
-              )}
-              <h3 id={`${project.id}-title`} data-reveal="soft">{project.name}</h3>
-              {project.id === "memx" ? null : (
-                <p className="work-role" data-reveal="soft">{project.role}</p>
-              )}
-              <p className="work-summary" data-reveal="soft">{project.summary}</p>
-              <ul
-                className="work-scope"
-                data-reveal-group
-                data-reveal-stagger="55"
-                aria-label={`${project.name} scope`}
-              >
-                {project.scope.map((item) => <li data-reveal="soft" key={item}>{item}</li>)}
-              </ul>
-              {project.route ? (
-                <Link className="work-case-link" data-reveal="soft" href={project.route}>
-                  View case study <span aria-hidden="true">↗</span>
-                </Link>
-              ) : null}
-            </div>
-            <ProjectArtwork artwork={project.artwork} reveal={artworkDirection} />
-          </article>
-          );
-        })}
+          </header>
+        ) : null}
+        <div className="st-projects" id={showHeading ? undefined : anchorId}>
+          {projects.map((project) => (
+            <article className={`st-project st-project-${project.id}`} id={project.id} key={project.id} aria-labelledby={`${project.id}-title`}>
+              <div className="st-project-copy">
+                <p className="studio-label" data-reveal="soft">{project.discipline}</p>
+                <ProjectHeading id={`${project.id}-title`} data-reveal="soft">{project.name}</ProjectHeading>
+                <p className="st-project-role" data-reveal="soft">{project.role}</p>
+                <p className="st-project-summary" data-reveal="soft">{project.summary}</p>
+                <ul className="st-project-scope" aria-label={`${project.name} scope`} data-reveal="soft">
+                  {project.scope.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+                {project.route ? <Link className="studio-link" data-reveal="soft" href={project.route}>View case study <span aria-hidden="true">↗</span></Link> : null}
+              </div>
+              <ProjectArtwork artwork={project.artwork} />
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
