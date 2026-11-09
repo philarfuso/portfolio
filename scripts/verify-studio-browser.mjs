@@ -11,11 +11,12 @@ assert.ok(['localhost','127.0.0.1'].includes(base.hostname),'Use a local server;
 const dir=path.resolve(process.env.STUDIO_ARTIFACT_DIR || '/tmp/portfolio-studio-browser');await mkdir(dir,{recursive:true});
 const browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
 const routes=['/','/work','/resume','/contact','/work/memx','/work/domani','/work/iffers-pictures','/consulting','/studio-missing-route'];
+const selectedRoutes=process.env.STUDIO_ROUTES?.split(',');
 const results=[];const failures=[];const errors=[];
 async function context(options={}) {const c=await browser.newContext(options);await c.route('**/*',r=>new URL(r.request().url()).origin===base.origin?r.continue():r.abort());return c;}
-async function check(name,fn) {try{await fn();results.push({name,pass:true});}catch(e){failures.push({name,error:e.message});results.push({name,pass:false,error:e.message});}}
+async function check(name,fn) {try{await fn();results.push({name,pass:true});}catch(e){console.log('FAIL '+name+': '+e.message);failures.push({name,error:e.message});results.push({name,pass:false,error:e.message});}}
 const c=await context({viewport:{width:1280,height:900}});const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
-for(const route of routes) {
+for(const route of routes.filter(route=>!selectedRoutes || selectedRoutes.includes(route))) {
  console.log('Checking '+route);
  await check(`direct load, main focus and fresh print ${route}`,async()=>{
   const response=await p.goto(new URL(route,base).href);assert.equal(response.status(),route.includes('missing')?404:200);
@@ -37,12 +38,13 @@ for(const route of routes) {
   await p.emulateMedia({reducedMotion:'reduce'});
   await p.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=700){scrollTo(0,y);await new Promise(r=>setTimeout(r,15));}scrollTo(0,0);});
   for (const img of await p.locator('main img').all()) {
-    await img.scrollIntoViewIfNeeded();
+    if (!(await img.isVisible())) continue; // Hidden decorative duplicates need not load.
+    await img.scrollIntoViewIfNeeded({timeout:8000});
     await img.evaluate(e=>Promise.race([e.decode(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Image did not decode after entering the viewport')),8000))]));
   }
   await p.evaluate(()=>scrollTo(0,0));
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'horizontal overflow');
-  assert.deepEqual(await p.locator('main img').evaluateAll(es=>es.filter(e=>!e.complete||e.naturalWidth===0).map(e=>e.getAttribute('src'))),[],'broken media');
+  assert.deepEqual(await p.locator('main img').evaluateAll(es=>es.filter(e=>e.getClientRects().length>0 && (!e.complete||e.naturalWidth===0)).map(e=>e.getAttribute('src'))),[],'broken media');
   if([1280,390].includes(width)) {const slug=route==='/'?'home':route.slice(1).replaceAll('/','-');await p.screenshot({path:path.join(dir,`${slug}-${width}-full.png`),fullPage:true});await p.screenshot({path:path.join(dir,`${slug}-${width}-hero.png`)});await p.evaluate(()=>scrollTo(0,900));await p.screenshot({path:path.join(dir,`${slug}-${width}-body.png`)});}
   await p.emulateMedia({reducedMotion:'no-preference'});
  });
