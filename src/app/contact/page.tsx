@@ -23,7 +23,7 @@ const channels = [
   },
   {
     label: "GitHub",
-    value: "github.com/parfuso-pvs",
+    value: "github.com/philarfuso",
     href: profile.github,
     external: true,
   },
