@@ -9,20 +9,19 @@ const diagrams = readFileSync(
   "utf8",
 );
 const projects = readFileSync("src/content/projects.ts", "utf8");
-const css = readFileSync("src/app/globals.css", "utf8");
 
 test("MEMX case study preserves the approved market scale", () => {
   assert.match(content, /One equities market and two options markets/);
   assert.match(content, /One crypto market and four equities markets/);
   assert.match(content, /total: "8"/);
-  assert.match(page, /className="case-configuration-scale"/);
+  assert.match(page, /study\.scale\.total/);
 });
 
 test("MEMX framing leads with the breadth of the work", () => {
   assert.match(content, /Member and operations tools/);
   assert.match(content, /Reusable frontend systems/);
   assert.match(content, /APIs, data, and production delivery/);
-  assert.match(page, /className="case-contributions"/);
+  assert.match(page, /study\.hero\.contributions\.map/);
   assert.match(projects, /Portal tooling/);
   assert.match(projects, /Full-stack systems/);
   assert.match(projects, /Production platform/);
@@ -35,7 +34,7 @@ test("MEMX case study explains the portal tools before the architecture", () => 
   assert.match(content, /Institution switching/);
   assert.match(content, /Exchange members/);
   assert.match(content, /Market operations/);
-  assert.match(page, /className="case-portal"/);
+  assert.match(page, /id="portal-tools"/);
 });
 
 test("MEMX case study attributes the shared architecture accurately", () => {
@@ -57,11 +56,10 @@ test("MEMX diagrams explain real relationships without private market data", () 
   assert.match(diagrams, /Market-specific classes/);
   assert.match(diagrams, /sanitized request/i);
   assert.doesNotMatch(diagrams, /order book|matching engine|price|quantity/i);
-  assert.match(
-    css,
-    /\.configuration-output\s*\{[\s\S]*?display: grid;[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/,
-  );
-  assert.doesNotMatch(css, /\.configuration-output\s*\{\s*display: contents/);
+  assert.match(diagrams, /configurationInputs\.map/);
+  assert.match(diagrams, /Both feed shared platform context/);
+  assert.match(page, /id="configuration"/);
+  assert.match(diagrams, /id="configuration-diagram"/);
 });
 
 test("MEMX case study does not showcase the live IPO feature", () => {

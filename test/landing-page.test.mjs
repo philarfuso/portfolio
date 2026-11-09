@@ -50,7 +50,7 @@ test("landing page shows consulting availability with a mailto link", () => {
   assert.match(profile, /Available for contract and consulting work/);
   assert.match(profile, /email: "phil@philstackcoding\.com"/);
   assert.match(page, /className="hero-availability"/);
-  assert.match(page, /className="home-close-email"/);
+  assert.match(page, /className="studio-link"/);
   assert.equal(
     page.match(/href=\{`mailto:\$\{profile\.consulting\.email\}`\}/g)?.length,
     2,
@@ -66,17 +66,20 @@ test("landing page keeps selected work centralized and linked", () => {
     /Full-stack platforms, mobile products, and client websites—work spanning architecture, interface design, and production delivery\./,
   );
   assert.doesNotMatch(selectedWork, /A mix of work from my day job/);
-  assert.match(page, /className="project-rail-label"/);
-  assert.match(page, /className="project-rail-divider"/);
+  assert.match(page, /className="st-project-rail-label"/);
+  assert.match(page, /href=\{`#\$\{project\.id\}`\}/);
   assert.doesNotMatch(page, /aria-hidden="true">\/<\/span>/);
   assert.match(page, /<SelectedWork \/>/);
   assert.match(projects, /MEMX/);
   assert.match(projects, /Domani/);
   assert.match(projects, /Iffer’s Pictures/);
   assert.match(selectedWork, /ProjectArtwork/);
-  assert.match(selectedWork, /iffers-browser-desktop/);
-  assert.match(selectedWork, /iffers-browser-mobile/);
+  assert.match(selectedWork, /Client photography displayed/);
+  assert.match(selectedWork, /family-session\.jpg/);
   assert.match(selectedWork, /Responsive client website/);
+  assert.match(selectedWork, /Conceptual platform illustration/);
+  assert.match(selectedWork, /today-screen\.png/);
+  assert.match(selectedWork, /demonstration content/);
   assert.doesNotMatch(selectedWork, /Light[\s\S]*Composition[\s\S]*Story/);
   assert.doesNotMatch(selectedWork, /Full case study \/ next/);
   assert.doesNotMatch(selectedWork, /01 \/ Selected work/);
@@ -88,7 +91,7 @@ test("landing page includes responsive and reduced-motion treatment", () => {
   assert.match(css, /@media \(max-width: 760px\)/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /min-height: 44px/);
-  assert.match(css, /overflow-x: clip/);
+  assert.match(css, /mobile-chess-sculpture-clean/);
 });
 
 test("hero artwork uses layered editorial objects and restrained parallax", () => {
@@ -136,23 +139,9 @@ test("landing page uses the approved Trailhead palette", () => {
   assert.doesNotMatch(css, /data-theme/);
 });
 
-test("selected work restores the bounded blueprint grid material", () => {
-  assert.match(css, /--blueprint-surface: #1b4a56/);
-  assert.match(css, /--blueprint-grid-minor:/);
-  assert.match(css, /--blueprint-grid-major:/);
-  assert.match(css, /6rem 6rem/);
-  assert.match(css, /1\.5rem 1\.5rem/);
-});
 
-test("shared work badges and case-study links have restrained interaction states", () => {
-  assert.match(css, /\.work-scope li:hover/);
-  assert.match(css, /\.work-case-link:hover/);
-  assert.match(css, /\.work-case-link:focus-visible/);
-  assert.match(css, /\.work-case-link:active/);
-  assert.match(css, /\.work-scope li\s*\{[\s\S]*?cursor: default/);
-  assert.match(css, /\.work-scope li::before[\s\S]*?transform 560ms cubic-bezier/);
-  assert.match(css, /\.work-case-link::before[\s\S]*?transform 600ms cubic-bezier/);
-});
+
+
 
 test("primary portfolio destinations are implemented", () => {
   assert.match(siteHeader, /href: "\/work"/);

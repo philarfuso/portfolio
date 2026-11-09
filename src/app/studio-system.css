@@ -1,0 +1,66 @@
+/* Shared Studio vocabulary. Route compositions live beside their owners. */
+:root {
+  --studio-paper: #f5f1e7;
+  --studio-ink: #14272c;
+  --studio-muted: #3c5c63;
+  --studio-sage: #e1e7db;
+  --studio-mist: #e3edf0;
+  --studio-sand: #eee1cd;
+  --studio-radius: 30px;
+  --studio-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.studio-shell { width: min(100% - clamp(40px, 8vw, 112px), 1280px); margin-inline: auto; }
+.studio-label { font: 400 .7rem/1.6 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.studio-title { font: 600 clamp(2.3rem, 4.4vw, 4.5rem)/1.05 "Barlow Condensed", sans-serif; letter-spacing: -.025em; }
+.studio-surface { padding: clamp(24px, 4vw, 56px); border-radius: var(--studio-radius); background: var(--studio-sage); }
+.studio-button, .studio-link { display: inline-flex; align-items: center; gap: 24px; width: fit-content; text-decoration: none; }
+.studio-button { padding: 15px 25px; border-radius: 100px; background: var(--studio-ink); color: var(--studio-paper); font-size: .875rem; }
+.studio-link { font-size: .95rem; }
+:is(.studio-link, .studio-button) span { transition: transform 260ms var(--studio-ease); }
+:is(.studio-link, .studio-button):is(:hover, :focus-visible) span { transform: translate(3px, -3px); }
+main:focus { outline: none; }
+main[id] { scroll-margin-top: 12px; }
+/* Enhancement readiness belongs to this route, never the document root. */
+[data-motion-ready="ready"] [data-reveal] {
+  transition: opacity 650ms var(--studio-ease) var(--reveal-delay, 0ms), translate 800ms var(--studio-ease) var(--reveal-delay, 0ms);
+}
+[data-motion-ready="ready"] [data-reveal]:not([data-reveal-state="visible"]) { opacity: 0; translate: 0 22px; }
+[data-motion-ready] [data-reveal]:focus-within { opacity: 1; translate: none; transition: none; }
+.studio-case-footer { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-block: clamp(64px, 8vw, 110px) max(110px, calc(80px + env(safe-area-inset-bottom))); color: var(--case-ink, var(--studio-ink)); }
+.studio-case-next { display: inline-block; font: 600 clamp(2rem, 4vw, 3.8rem)/1.1 "Barlow Condensed", sans-serif; text-decoration: none; }
+.studio-case-next span { display: inline-block; transition: transform 260ms var(--studio-ease); }
+.studio-case-next:hover span { transform: translate(4px, -4px); }
+.studio-case-footer nav { display: flex; gap: 28px; flex-wrap: wrap; }
+@media (max-width: 760px) { .studio-case-footer { align-items: start; flex-direction: column; gap: 32px; } }
+@media (prefers-reduced-motion: reduce), print {
+  [data-motion-ready] [data-reveal] { opacity: 1 !important; translate: none !important; scale: none !important; transform: none !important; transition: none !important; animation: none !important; }
+  :is(.studio-link, .studio-button, .studio-case-next) span { transform: none !important; transition: none; }
+}
+@media print {
+  html, body { background: white; color: #14272c; }
+  .site-header, .skip-link, .case-navigator { display: none !important; }
+  main { overflow: visible !important; }
+  a { overflow-wrap: anywhere; }
+  img { max-width: 100%; }
+}
+/* Shared header contrast and mobile safe-area placement. */
+.site-header-paper .wordmark-role { color: var(--studio-muted); }
+.site-header-paper .desktop-nav a::after { background: currentColor; }
+@media (max-width: 760px) {
+  .case-navigator { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+}
+/* Light surfaces need an ink focus ring; the brand blue remains suited to dark heroes. */
+:where(.st-work-page, .st-resume, .st-contact, .st-not-found, .sc-page, .consulting-page) :is(a, summary, button):focus-visible,
+.st-home :is(.st-selected-work, .st-home-close) a:focus-visible {
+  outline: 2px solid var(--studio-ink);
+  outline-offset: 5px;
+}
+:is(.sc-hero-ink, .consulting-hero, .consulting-close) :is(a, summary, button):focus-visible {
+  outline-color: var(--paper);
+}
+@media print {
+  .st-home .hero { min-height: auto; background: white; color: var(--studio-ink); }
+  .st-home .hero * { color: inherit !important; }
+  .st-home .hero-copy h1 { opacity: 1 !important; animation: none !important; transform: none !important; }
+  .st-home .hero-artwork, .st-home .hero-stage::before { display: none !important; }
+}

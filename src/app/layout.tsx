@@ -10,6 +10,9 @@ import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
 import "./globals.css";
 import "./case-study-themes.css";
+import "./studio-system.css";
+import "./studio-pages.css";
+import "./studio-cases.css";
 import { MotionOrchestrator } from "@/components/motion/motion-orchestrator";
 import {
   createSiteBehaviourBootstrap,

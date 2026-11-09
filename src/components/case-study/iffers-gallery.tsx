@@ -11,14 +11,14 @@ const sizes = {
 export function IffersGallery() {
   return (
     <div
-      className="iffers-gallery"
+      className="sc-gallery"
       data-reveal-group
       data-reveal-stagger="85"
       id="selected-photography"
     >
       {iffersPicturesCaseStudy.media.images.map((image) => (
         <figure
-          className={`iffers-photo iffers-photo-${image.id}`}
+          className={`sc-photo sc-photo-${image.id}`}
           data-reveal="scale"
           key={image.id}
         >

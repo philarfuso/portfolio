@@ -31,23 +31,24 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <main className="contact-page" id="main-content">
-      <section className="contact-shell" aria-labelledby="contact-title">
-        <SiteHeader current="contact" />
+    <main className="st-contact" id="main-content" tabIndex={-1}>
+      <section className="st-contact-shell" aria-labelledby="contact-title">
+        <SiteHeader current="contact" tone="paper" />
 
-        <div className="contact-layout" data-reveal-group data-reveal-stagger="110">
-          <div className="contact-intro" data-reveal="left" data-reveal-group>
+        <div className="st-contact-layout" data-reveal-group data-reveal-stagger="110">
+          <div className="st-contact-intro" data-reveal="left" data-reveal-group>
+            <p className="studio-label" data-reveal="soft">Let’s talk</p>
             <h1 id="contact-title" data-reveal="soft">Say hello</h1>
             <p data-reveal="soft">{profile.contact.intro}</p>
-            <div className="contact-consulting" data-reveal="soft">
+            <div className="st-contact-consulting" data-reveal="soft">
               <p>Looking for senior engineering help?</p>
-              <Link href="/consulting">Explore consulting services <span aria-hidden="true">→</span></Link>
+              <Link className="studio-link" href="/consulting">Explore consulting services <span aria-hidden="true">→</span></Link>
               <a href={`mailto:${profile.consulting.email}`}>{profile.consulting.email}</a>
             </div>
           </div>
 
           <div
-            className="contact-channels"
+            className="st-contact-channels"
             data-reveal="right"
             data-reveal-group
             data-reveal-stagger="75"
@@ -55,7 +56,7 @@ export default function ContactPage() {
           >
             {channels.map((channel) => (
               <a
-                className="contact-channel"
+                className="st-contact-channel"
                 data-reveal="soft"
                 href={channel.href}
                 key={channel.label}
@@ -67,20 +68,15 @@ export default function ContactPage() {
                     : undefined
                 }
               >
-                <span className="contact-channel-label">{channel.label}</span>
-                <span className="contact-channel-value">{channel.value}</span>
-                <span className="contact-channel-arrow" aria-hidden="true">↗</span>
-                <span className="contact-channel-foreground" aria-hidden="true">
-                  <span className="contact-channel-label">{channel.label}</span>
-                  <span className="contact-channel-value">{channel.value}</span>
-                  <span className="contact-channel-arrow">↗</span>
-                </span>
+                <span className="st-contact-channel-label">{channel.label}</span>
+                <span className="st-contact-channel-value">{channel.value}</span>
+                <span className="st-contact-channel-arrow" aria-hidden="true">↗</span>
               </a>
             ))}
           </div>
         </div>
 
-        <footer className="contact-footer" data-reveal-group data-reveal-stagger="65">
+        <footer className="st-contact-footer" data-reveal-group data-reveal-stagger="65">
           <p data-reveal="soft">{profile.location}</p>
           <p data-reveal="soft">{profile.contact.note}</p>
           <Link data-reveal="soft" href="/">Back home</Link>

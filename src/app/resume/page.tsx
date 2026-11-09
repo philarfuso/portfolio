@@ -11,19 +11,20 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="resume-page" id="main-content">
-      <section className="resume-hero" aria-labelledby="resume-title">
-        <SiteHeader current="resume" tone="dark" />
+    <main className="st-resume" id="main-content" tabIndex={-1}>
+      <section className="st-resume-hero" aria-labelledby="resume-title">
+        <SiteHeader current="resume" tone="paper" />
 
-        <div className="resume-hero-layout" data-reveal-group data-reveal-stagger="110">
+        <div className="st-resume-hero-layout" data-reveal-group data-reveal-stagger="110">
           <div data-reveal="left">
+            <p className="studio-label">Experience &amp; approach</p>
             <h1 id="resume-title">Full-stack software engineer</h1>
           </div>
 
-          <div className="resume-hero-summary" data-reveal="right" data-reveal-group data-reveal-stagger="75">
+          <div className="st-resume-hero-summary" data-reveal="right" data-reveal-group data-reveal-stagger="75">
             <p data-reveal="soft">{resume.profile}</p>
             <a
-              className="primary-action"
+              className="studio-button"
               data-reveal="soft"
               href="/resume.pdf"
               download="Phil-Arfuso-Resume.pdf"
@@ -33,26 +34,26 @@ export default function ResumePage() {
           </div>
         </div>
 
-        <address className="resume-contact" data-reveal-group data-reveal-stagger="55">
+        <address className="st-resume-contact" data-reveal-group data-reveal-stagger="55">
           <span data-reveal="soft">{resume.location}</span>
           <a data-reveal="soft" href={resume.phoneHref}>{resume.phone}</a>
           <a data-reveal="soft" href={`mailto:${resume.email}`}>{resume.email}</a>
           <a data-reveal="soft" href={resume.linkedIn} target="_blank" rel="noopener noreferrer">
-            LinkedIn <span aria-hidden="true">↗</span>
+            LinkedIn <span className="st-sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span>
           </a>
           <a data-reveal="soft" href={resume.github} target="_blank" rel="noopener noreferrer">
-            GitHub <span aria-hidden="true">↗</span>
+            GitHub <span className="st-sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span>
           </a>
         </address>
       </section>
 
-      <section className="resume-technologies" aria-labelledby="technologies-title">
+      <section className="st-resume-technologies" aria-labelledby="technologies-title">
         <header data-reveal-group data-reveal-stagger="70">
           <p data-reveal="soft">Skills</p>
           <h2 id="technologies-title" data-reveal="left">Core technologies</h2>
         </header>
 
-        <div className="resume-technology-grid" data-reveal-group data-reveal-stagger="85">
+        <div className="st-resume-technology-grid" data-reveal-group data-reveal-stagger="85">
           {resume.technologies.map((group) => (
             <article data-reveal-group data-reveal-stagger="45" key={group.label}>
               <h3 data-reveal="soft">{group.label}</h3>
@@ -66,27 +67,27 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <section className="resume-experience" aria-labelledby="experience-title">
-        <header className="resume-section-heading" data-reveal-group data-reveal-stagger="70">
+      <section className="st-resume-experience" aria-labelledby="experience-title">
+        <header className="st-resume-section-heading" data-reveal-group data-reveal-stagger="70">
           <p data-reveal="soft">Experience</p>
           <h2 id="experience-title" data-reveal="left">Work history</h2>
         </header>
 
-        <div className="resume-company-list" data-reveal-group data-reveal-stagger="110">
+        <div className="st-resume-company-list" data-reveal-group data-reveal-stagger="110">
           {resume.experience.map((company) => (
-            <article className="resume-company" data-reveal-group data-reveal-stagger="70" key={company.company}>
+            <article className="st-resume-company" data-reveal-group data-reveal-stagger="70" key={company.company}>
               <header data-reveal="left">
                 <h3>{company.company}</h3>
-                <p className="resume-company-location">{company.location}</p>
-                <p className="resume-company-tenure">
+                <p className="st-resume-company-location">{company.location}</p>
+                <p className="st-resume-company-tenure">
                   <span>Total tenure</span>
                   {company.tenure}
                 </p>
               </header>
 
-              <div className="resume-role-list" data-reveal-group data-reveal-stagger="80">
+              <div className="st-resume-role-list" data-reveal-group data-reveal-stagger="80">
                 {company.roles.map((role) => (
-                  <section className="resume-role" data-reveal-group data-reveal-stagger="60" key={role.title}>
+                  <section className="st-resume-role" data-reveal-group data-reveal-stagger="60" key={role.title}>
                     <header data-reveal="left">
                       <h4>{role.title}</h4>
                       <p>{role.dates}</p>
@@ -106,13 +107,13 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <section className="resume-ventures" aria-labelledby="ventures-title">
-        <header className="resume-section-heading" data-reveal-group data-reveal-stagger="70">
+      <section className="st-resume-ventures" aria-labelledby="ventures-title">
+        <header className="st-resume-section-heading" data-reveal-group data-reveal-stagger="70">
           <p data-reveal="soft">Products &amp; ventures</p>
           <h2 id="ventures-title" data-reveal="left">Domani and agency work</h2>
         </header>
 
-        <div className="resume-venture-grid" data-reveal-group data-reveal-stagger="95">
+        <div className="st-resume-venture-grid" data-reveal-group data-reveal-stagger="95">
           {resume.ventures.map((venture) => (
             <article data-reveal-group data-reveal-stagger="65" key={venture.company}>
               <header data-reveal="soft">
@@ -135,21 +136,21 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <footer className="resume-footer" data-reveal-group data-reveal-stagger="100">
+      <footer className="st-resume-footer" data-reveal-group data-reveal-stagger="100">
         <div data-reveal="left" data-reveal-group data-reveal-stagger="65">
           <p data-reveal="soft">PDF version</p>
           <h2 data-reveal="soft">Download a copy</h2>
         </div>
         <div data-reveal="right" data-reveal-group data-reveal-stagger="65">
           <a
-            className="primary-action"
+            className="studio-button"
             data-reveal="soft"
             href="/resume.pdf"
             download="Phil-Arfuso-Resume.pdf"
           >
             Download PDF <span aria-hidden="true">↓</span>
           </a>
-          <Link className="secondary-action" data-reveal="soft" href="/contact">
+          <Link className="studio-link" data-reveal="soft" href="/contact">
             Say hello
           </Link>
         </div>

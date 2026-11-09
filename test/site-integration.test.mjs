@@ -25,7 +25,7 @@ const [
   read("src/app/not-found.tsx"),
   read("src/app/icon.tsx"),
   read("src/app/opengraph-image.tsx"),
-  read("src/app/globals.css"),
+  read("src/app/globals.css").then(async s => s + await read("src/app/studio-pages.css")),
   read("src/app/contact/page.tsx"),
   read("src/app/resume/page.tsx"),
   read("src/app/work/memx/page.tsx"),
@@ -38,6 +38,7 @@ test("every route provides a keyboard skip target", () => {
   assert.match(layout, /className="skip-link" href="#main-content"/);
   for (const route of [home, contact, resume, memx, domani, iffers, work, notFound]) {
     assert.match(route, /id="main-content"/);
+    assert.match(route, /tabIndex=\{-1\}/);
   }
   assert.match(css, /\.skip-link:focus/);
 });
@@ -47,16 +48,15 @@ test("the primary navigation links to the work index", () => {
   assert.match(header, /id: "work"/);
   assert.match(work, /current="work"/);
   for (const route of [memx, domani, iffers]) {
-    assert.match(route, /<SiteHeader tone=/);
-    assert.doesNotMatch(route, /current="work"/);
+    assert.match(route, /<SiteHeader current="work" tone=/);
   }
 });
 
 test("the homepage ends with a useful next step", () => {
-  assert.match(home, /className="home-close"/);
+  assert.match(home, /className="st-home-close"/);
   assert.match(home, /Working on something tricky/);
   assert.match(home, /href="\/contact"/);
-  assert.match(css, /\.home-close/);
+  assert.match(css, /\.st-home-close/);
 });
 
 test("browser identity and missing-page treatment are branded", () => {
@@ -70,7 +70,7 @@ test("browser identity and missing-page treatment are branded", () => {
   assert.match(openGraphImage, /Full-stack developer/);
   assert.match(openGraphImage, /Web &amp; mobile/);
   assert.match(notFound, /Looks like this one wandered off/);
-  assert.match(css, /\.not-found-page/);
+  assert.match(css, /\.st-not-found/);
 });
 
 test("SiteBehaviour analytics loads once across the application", () => {

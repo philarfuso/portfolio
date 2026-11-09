@@ -77,7 +77,6 @@ export function CaseStudyNavigator({
           setIsOpen(false);
         }
       }}
-      onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => {
         if (!navigatorRef.current?.contains(document.activeElement)) {
           setIsOpen(false);
@@ -90,8 +89,7 @@ export function CaseStudyNavigator({
         aria-controls="case-navigator-destinations"
         aria-expanded={isOpen}
         aria-label="Open project navigation"
-        onClick={() => setIsOpen(true)}
-        onFocus={() => setIsOpen(true)}
+        onClick={() => setIsOpen((open) => !open)}
       >
         <span aria-hidden="true">↔</span>
       </button>
