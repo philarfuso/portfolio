@@ -59,7 +59,7 @@ main[id] { scroll-margin-top: 12px; }
   outline-color: var(--paper);
 }
 @media print {
-  .st-home .hero { min-height: auto; background: white; color: var(--studio-ink); }
+  .st-home .hero { min-height: auto !important; background: white !important; color: var(--studio-ink) !important; }
   .st-home .hero * { color: inherit !important; }
   .st-home .hero-copy h1 { opacity: 1 !important; animation: none !important; transform: none !important; }
   .st-home .hero-artwork, .st-home .hero-stage::before { display: none !important; }
