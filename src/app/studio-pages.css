@@ -15,11 +15,14 @@
 .st-project-rail-label { display: flex; align-items: center; gap: 10px; }
 .st-project-rail-label > :last-child { color: #b7c9c9; }
 .st-home-close { padding: 0 0 80px; background: var(--studio-paper); }
-.st-home-close-inner { display: grid; grid-template-columns: .55fr 1fr; gap: 36px; border-radius: var(--studio-radius); padding: clamp(28px,5vw,70px); background: var(--studio-mist); }
-.st-home-close .studio-title { max-width: 17ch; margin-top: 0; }
-.st-home-close-inner > div > p { max-width: 48ch; margin: 24px 0; line-height: 1.8; color: var(--studio-muted); }
-.st-close-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
-.st-close-actions .studio-link { overflow-wrap: anywhere; }
+.st-home-close-inner { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: clamp(32px,5vw,72px); border-radius: var(--studio-radius); padding: clamp(28px,4vw,56px); background: var(--studio-mist); }
+.st-home-close-copy { min-width: 0; }
+.st-home-close-copy > .studio-label { margin: 0 0 18px; color: var(--studio-muted); }
+.st-home-close .studio-title { max-width: 23ch; margin: 0; font-size: clamp(2.15rem,3.5vw,3.5rem); line-height: 1.08; text-wrap: balance; }
+.st-home-close-copy > p:last-child { max-width: 51ch; margin: 18px 0 0; line-height: 1.75; color: var(--studio-muted); }
+.st-close-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.st-close-actions .studio-link { font-size: .85rem; overflow-wrap: anywhere; }
+
 
 /* Shared gallery: generous media, compact context and individual project color. */
 .st-selected-work { padding: 104px 0 112px; color: var(--studio-ink); background: var(--studio-paper); }
@@ -158,8 +161,7 @@
   .st-project-rail-label { gap: 8px; }
   .st-home-close { padding: 0 20px 36px; }
   .st-home-close-inner { width: 100%; grid-template-columns: 1fr; gap: 24px; padding: 30px 24px; }
-  .st-home-close-inner > .studio-label { margin: 0; }
-  .st-close-actions { gap: 20px; align-items: start; flex-direction: column; }
+  .st-close-actions { gap: 16px; }
   .st-close-actions .studio-link { font-size: .8rem; }
   .st-selected-work { padding: 64px 0 72px; }
   .st-selected-work-index { padding-top: 12px; }
