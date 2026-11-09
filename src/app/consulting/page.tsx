@@ -4,12 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { consulting, consultingMailto, type ConsultingOfferId } from "@/content/consulting";
 import { profile } from "@/content/profile";
 import { portfolioProjects } from "@/content/projects";
-import { ConsultingLayoutSelector } from "./consulting-layout-selector";
 import { ConsultingProofVisual } from "./consulting-proof-visual";
 import { ConsultingStudioMotion } from "./consulting-studio-motion";
 import "./consulting.css";
-import "./consulting-layout-selector.css";
-import "./consulting-studio.css";
 import "./consulting-studio-motion.css";
 
 const title = "Full-stack engineering & software consulting";
@@ -48,7 +45,6 @@ export default function ConsultingPage() {
   return (
     <main className="consulting-page" id="main-content" tabIndex={-1}>
       <ConsultingStudioMotion />
-      <ConsultingLayoutSelector />
       <section className="consulting-hero" aria-labelledby="consulting-title">
         <SiteHeader current="consulting" />
 

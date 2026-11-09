@@ -7,7 +7,7 @@ type ConsultingProofVisualProps = {
 export function ConsultingProofVisual({ projectId }: ConsultingProofVisualProps) {
   if (projectId === "memx") {
     return (
-      <figure className="consulting-studio-only consulting-proof-visual consulting-proof-visual-memx">
+      <figure className="consulting-proof-visual consulting-proof-visual-memx">
         <div className="studio-market-composition" aria-hidden="true">
           <span className="studio-market-orbit studio-market-orbit-one" />
           <span className="studio-market-orbit studio-market-orbit-two" />
@@ -25,7 +25,7 @@ export function ConsultingProofVisual({ projectId }: ConsultingProofVisualProps)
 
   if (projectId === "domani") {
     return (
-      <figure className="consulting-studio-only consulting-proof-visual consulting-proof-visual-domani">
+      <figure className="consulting-proof-visual consulting-proof-visual-domani">
         <div className="studio-domani-halo" aria-hidden="true" />
         <Image
           className="studio-domani-screen"
@@ -42,7 +42,7 @@ export function ConsultingProofVisual({ projectId }: ConsultingProofVisualProps)
 
   if (projectId === "iffers-pictures") {
     return (
-      <figure className="consulting-studio-only consulting-proof-visual consulting-proof-visual-iffers">
+      <figure className="consulting-proof-visual consulting-proof-visual-iffers">
         <div className="studio-iffers-window">
           <div className="studio-iffers-toolbar" aria-hidden="true">
             <span className="studio-iffers-dots"><i /><i /><i /></span>

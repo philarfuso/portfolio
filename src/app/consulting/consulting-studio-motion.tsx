@@ -7,8 +7,7 @@ const groupSelector = ".consulting-section-heading, .consulting-offer, .consulti
 export function ConsultingStudioMotion() {
   useEffect(() => {
     const main = document.querySelector<HTMLElement>(".consulting-page");
-    const studio = document.querySelector<HTMLInputElement>("#consulting-layout-studio");
-    if (!main || !studio) return;
+    if (!main) return;
 
     const groups = Array.from(main.querySelectorAll<HTMLElement>(groupSelector));
     const visuals = Array.from(main.querySelectorAll<HTMLElement>(".consulting-proof-visual"));
@@ -36,10 +35,6 @@ export function ConsultingStudioMotion() {
     function syncMotion() {
       observer?.disconnect();
       resetVisuals();
-      if (!studio?.checked) {
-        main?.removeAttribute("data-studio-motion");
-        return;
-      }
       if (reduced.matches || !("IntersectionObserver" in window)) {
         main!.dataset.studioMotion = "reduced";
         groups.forEach((element) => reveal(element));
@@ -76,7 +71,7 @@ export function ConsultingStudioMotion() {
     }
 
     function moveVisual(event: PointerEvent) {
-      if (!studio?.checked || reduced.matches || !finePointer.matches) return;
+      if (reduced.matches || !finePointer.matches) return;
       const visual = event.currentTarget as HTMLElement;
       const rect = visual.getBoundingClientRect();
       const x = Math.max(-0.5, Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5));
@@ -93,7 +88,6 @@ export function ConsultingStudioMotion() {
       visual.addEventListener("pointermove", moveVisual);
       visual.addEventListener("pointerleave", resetVisuals);
     });
-    main.addEventListener("change", syncMotion);
     main.addEventListener("focusin", revealFocus);
     reduced.addEventListener("change", syncMotion);
     syncMotion();
@@ -102,7 +96,6 @@ export function ConsultingStudioMotion() {
       observer?.disconnect();
       resetVisuals();
       main.removeAttribute("data-studio-motion");
-      main.removeEventListener("change", syncMotion);
       main.removeEventListener("focusin", revealFocus);
       reduced.removeEventListener("change", syncMotion);
       groups.forEach((element) => {

@@ -1,36 +1,36 @@
-.consulting-page:has(#consulting-layout-studio:checked) {
+.consulting-page {
   --studio-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.consulting-page[data-studio-motion="ready"]:has(#consulting-layout-studio:checked) [data-studio-reveal] {
+.consulting-page[data-studio-motion="ready"] [data-studio-reveal] {
   transition: opacity 650ms var(--studio-ease) var(--studio-reveal-delay, 0ms),
     translate 800ms var(--studio-ease) var(--studio-reveal-delay, 0ms);
 }
 
-.consulting-page[data-studio-motion="ready"]:has(#consulting-layout-studio:checked) [data-studio-reveal]:not([data-studio-visible="true"]) {
+.consulting-page[data-studio-motion="ready"] [data-studio-reveal]:not([data-studio-visible="true"]) {
   opacity: 0;
   translate: 0 26px;
 }
 
-.consulting-page[data-studio-motion="ready"]:has(#consulting-layout-studio:checked) [data-studio-reveal]:focus-within {
+.consulting-page[data-studio-motion="ready"] [data-studio-reveal]:focus-within {
   opacity: 1;
   translate: none;
   transition: none;
 }
 
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-text-link span,
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-email span {
+.consulting-page .consulting-text-link span,
+.consulting-page .consulting-email span {
   display: inline-block;
   transition: transform 260ms var(--studio-ease);
 }
 
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-text-link:is(:hover, :focus-visible) span,
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-email:is(:hover, :focus-visible) span {
+.consulting-page .consulting-text-link:is(:hover, :focus-visible) span,
+.consulting-page .consulting-email:is(:hover, :focus-visible) span {
   transform: translate(3px, -3px);
 }
 
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-scope[open] > div,
-.consulting-page:has(#consulting-layout-studio:checked) .consulting-questions details[open] > p {
+.consulting-page .consulting-scope[open] > div,
+.consulting-page .consulting-questions details[open] > p {
   animation: studio-detail-in 280ms var(--studio-ease) both;
 }
 
@@ -39,7 +39,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.consulting-page[data-studio-motion="ready"]:has(#consulting-layout-studio:checked) .consulting-proof[data-studio-visible="true"] .consulting-proof-visual {
+.consulting-page[data-studio-motion="ready"] .consulting-proof[data-studio-visible="true"] .consulting-proof-visual {
   animation: studio-image-in 900ms var(--studio-ease) var(--studio-reveal-delay, 0ms) both;
 }
 
@@ -49,39 +49,39 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .consulting-page:has(#consulting-layout-studio:checked) .studio-domani-screen {
+  .consulting-page .studio-domani-screen {
     transform: translate3d(var(--studio-pointer-x, 0px), var(--studio-pointer-y, 0px), 0) rotate(calc(5deg + var(--studio-pointer-rotate, 0deg)));
     transition: transform 500ms var(--studio-ease);
   }
 
-  .consulting-page:has(#consulting-layout-studio:checked) .studio-iffers-window {
+  .consulting-page .studio-iffers-window {
     transform: translate3d(var(--studio-pointer-x, 0px), var(--studio-pointer-y, 0px), 0) rotate(calc(-3deg + var(--studio-pointer-rotate, 0deg)));
     transition: transform 500ms var(--studio-ease);
   }
 
-  .consulting-page:has(#consulting-layout-studio:checked) .studio-market-orbit {
+  .consulting-page .studio-market-orbit {
     transform: translate3d(var(--studio-pointer-x, 0px), var(--studio-pointer-y, 0px), 0);
     transition: transform 650ms var(--studio-ease);
   }
 
-  .consulting-page:has(#consulting-layout-studio:checked) .consulting-proof-visual:hover :is(.studio-domani-screen, .studio-iffers-window, .studio-market-orbit) {
+  .consulting-page .consulting-proof-visual:hover :is(.studio-domani-screen, .studio-iffers-window, .studio-market-orbit) {
     transition-duration: 160ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce), print {
-  .consulting-page:has(#consulting-layout-studio:checked) [data-studio-reveal] {
+  .consulting-page [data-studio-reveal] {
     opacity: 1 !important;
     translate: none !important;
     transition: none !important;
   }
 
-  .consulting-page:has(#consulting-layout-studio:checked) :is(.consulting-text-link span, .consulting-email span) {
+  .consulting-page :is(.consulting-text-link span, .consulting-email span) {
     transform: none;
     transition: none;
   }
 
-  .consulting-page:has(#consulting-layout-studio:checked) :is(.consulting-scope[open] > div, .consulting-questions details[open] > p, .consulting-proof-visual) {
+  .consulting-page :is(.consulting-scope[open] > div, .consulting-questions details[open] > p, .consulting-proof-visual) {
     animation: none !important;
   }
 }
