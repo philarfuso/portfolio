@@ -32,10 +32,15 @@ for(const route of routes) {
   await p.emulateMedia({media:'screen'});
  });
  for(const width of [1440,1280,1024,850,760,560,390,320])await check(`layout ${route} ${width}`,async()=>{
+  console.log('  viewport '+width);
   await p.setViewportSize({width,height:width===1280?720:900});await p.goto(new URL(route,base).href);await p.evaluate(()=>document.fonts.ready);
   await p.emulateMedia({reducedMotion:'reduce'});
   await p.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=700){scrollTo(0,y);await new Promise(r=>setTimeout(r,15));}scrollTo(0,0);});
-  await p.locator('main img').evaluateAll(es=>Promise.all(es.map(e=>e.decode().catch(()=>{}))));
+  for (const img of await p.locator('main img').all()) {
+    await img.scrollIntoViewIfNeeded();
+    await img.evaluate(e=>Promise.race([e.decode(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Image did not decode after entering the viewport')),8000))]));
+  }
+  await p.evaluate(()=>scrollTo(0,0));
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'horizontal overflow');
   assert.deepEqual(await p.locator('main img').evaluateAll(es=>es.filter(e=>!e.complete||e.naturalWidth===0).map(e=>e.getAttribute('src'))),[],'broken media');
   if([1280,390].includes(width)) {const slug=route==='/'?'home':route.slice(1).replaceAll('/','-');await p.screenshot({path:path.join(dir,`${slug}-${width}-full.png`),fullPage:true});await p.screenshot({path:path.join(dir,`${slug}-${width}-hero.png`)});await p.evaluate(()=>scrollTo(0,900));await p.screenshot({path:path.join(dir,`${slug}-${width}-body.png`)});}
