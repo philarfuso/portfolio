@@ -7,8 +7,8 @@ export const resumeContent = {
   email: "arfusop@gmail.com",
   linkedIn: "https://www.linkedin.com/in/phil-arfuso",
   linkedInLabel: "linkedin.com/in/phil-arfuso",
-  github: "https://github.com/parfuso-pvs",
-  githubLabel: "github.com/parfuso-pvs",
+  github: "https://github.com/philarfuso",
+  githubLabel: "github.com/philarfuso",
   profile:
     "Full-stack software engineer with 8+ years of experience building production software across web and mobile. I turn complex business rules and data models into reliable systems that are easier to use and maintain. My work spans React, React Native, Node.js, databases, cloud infrastructure, legacy modernization, and technical leadership. I also co-founded a part-time digital agency focused on web, SEO, and analytics for service businesses.",
   technologies: [

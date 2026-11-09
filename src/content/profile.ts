@@ -2,7 +2,7 @@ export const profile = {
   location: "New Jersey / Eastern Time",
   email: "arfusop@gmail.com",
   linkedIn: "https://www.linkedin.com/in/phil-arfuso",
-  github: "https://github.com/parfuso-pvs",
+  github: "https://github.com/philarfuso",
   consulting: {
     availability: "Available for contract and consulting work",
     email: "phil@philstackcoding.com",
